@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Firebase service account (NEVER commit this)
+sync/serviceaccount.json
+sync/optiaqua-*.json
+
+# Environment secrets
+sync/.env
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+temp_clone/

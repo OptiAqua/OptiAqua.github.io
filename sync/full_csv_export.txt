@@ -1,0 +1,310 @@
+﻿Textbox19,Textbox17,Textbox18,Textbox11
+44 = New Employees < Year,47 = MAX Years Tenured,7 = AVG Years Tenured,"7 years average tenure for selected dept(s).
+175% of U.S. average**
+
+**4 Years is average for U.S. companies***.
+
+***2024 U.S. Bureau of Labor Statistics"
+
+Emp ID_label,Emp ID_Chart1_CategoryGroup_label,Emp ID_Chart1_CategoryGroup_Value_Y
+Emp ID,Accounting,13
+Emp ID,Administration,5
+Emp ID,Aftermarket Sales,16
+Emp ID,Applications Eng,22
+Emp ID,Contract Administration,7
+Emp ID,Customer Service,11
+Emp ID,Dom Sales-East,1
+Emp ID,Dom Sales-Midwest,1
+Emp ID,Dom Sales-Southeast,1
+Emp ID,Dom Sales-West,1
+Emp ID,Eng-Admin,4
+Emp ID,Eng-Electrical,26
+Emp ID,Eng-Estimating,6
+Emp ID,Eng-Mechanical,15
+Emp ID,Eng-Standards,12
+Emp ID,Field Services,33
+Emp ID,Human Resources,4
+Emp ID,Industrial Sales,1
+Emp ID,Information Services,7
+Emp ID,Intl Sales,2
+Emp ID,Manufacturing,17
+Emp ID,Marketing-PR,3
+Emp ID,Prod Mgmt-Aer-Mix,2
+Emp ID,Prod Mgmt-Biological,5
+Emp ID,Prod Mgmt-Filtration,5
+Emp ID,Production Control,22
+Emp ID,Project Mgmt,13
+Emp ID,Research-Dev,12
+
+RadialGauge1_RadialScale1_MinimumValue,RadialGauge1_RadialScale1_MaximumValue,RadialGauge1_RadialPointer1_GaugeInputValue
+1,4,7
+
+EmpID,FIRSTNM,LASTNM,Department1,Supervisor1,USERACCOUNTSTATUS,COMPANYHIREDTM,YearsOfService,HireDate,HireDate1
+101463,Randy,Ebert,Research-Dev,"Hatch, Jacob",Active,4/27/26,24 day(s),   ---,4/27/26
+101459,Ian,Haehnlein,Eng-Electrical,"Johnson, Jeffrey",Active,4/6/26,1 mo.,   ---,4/6/26
+101436,Samantha,Symonds,Eng-Electrical,"Johnson, Jeffrey",Active,12/1/25,5 mos.,   ---,12/1/25
+101437,Kendall,King,Production Control,"Morgan, Robert",Active,12/1/25,5 mos.,   ---,12/1/25
+101430,Matthew,Gustafson,Aftermarket Sales,"Klebs, Paul",Active,11/17/25,6 mos.,   ---,11/17/25
+101435,Jack,Kern,Production Control,"Morgan, Robert",Active,11/10/25,6 mos.,   ---,11/10/25
+101431,Michelle,Wilhelm,Project Mgmt,"Hoffmann, Blake",Active,11/3/25,6 mos.,   ---,11/3/25
+101432,Albert,Marquez,Production Control,"Morgan, Robert",Active,11/3/25,6 mos.,   ---,11/3/25
+101433,Rainbow,Kaelin,Accounting,"Willis, Scott",Active,11/3/25,6 mos.,   ---,11/3/25
+101434,Justin,Palmer,Manufacturing,"Morgan, Robert",Active,11/3/25,6 mos.,   ---,11/3/25
+101429,Scott,Hynds,Customer Service,"Duchow, Stephanie",Active,10/13/25,7 mos.,   ---,10/13/25
+101419,Caleb,Morse,Field Services,"Pratt, Tyrone",Active,10/6/25,7 mos.,   ---,10/6/25
+101422,Joe,Gergets,Customer Service,"Duchow, Stephanie",Active,10/6/25,7 mos.,   ---,10/6/25
+101423,Tanzina,Azad,Applications Eng,"Davila, Angelica J",Active,10/6/25,7 mos.,   ---,10/6/25
+101424,Jasmine,Rawls,Field Services,"Pratt, Tyrone",Active,10/6/25,7 mos.,   ---,10/6/25
+101425,Greg,Hernandez,Field Services,"Pratt, Tyrone",Active,10/6/25,7 mos.,   ---,10/6/25
+101426,Andres,Hernandez,Field Services,"Pratt, Tyrone",Active,10/6/25,7 mos.,   ---,10/6/25
+101427,Ignar,Pimentel-Rivera,Field Services,"Pratt, Tyrone",Active,10/6/25,7 mos.,   ---,10/6/25
+101428,Riley,Black,Field Services,"Pratt, Tyrone",Active,10/6/25,7 mos.,   ---,10/6/25
+101420,Alex,Kuhl,Eng-Standards,"Smith, David",Active,9/29/25,8 mos.,   ---,9/29/25
+101421,Willow,Gustin,Accounting,"Barber, Elizabeth N",Active,9/29/25,8 mos.,   ---,9/29/25
+101418,Matt,Busse,Eng-Standards,"Smith, David",Active,9/15/25,8 mos.,   ---,9/15/25
+101417,Pawel,Szul,Research-Dev,"Hatch, Jacob",Active,9/10/25,8 mos.,   ---,9/10/25
+101416,Robin,Cartter,Field Services,"Pratt, Tyrone",Active,9/8/25,8 mos.,   ---,9/8/25
+101414,David,Sanchez,Eng-Electrical,"Johnson, Jeffrey",Active,8/25/25,9 mos.,   ---,8/25/25
+101415,Lauren,Maggi,Contract Administration,"Johnson, Cathy",Active,8/25/25,9 mos.,   ---,8/25/25
+101411,Josh,Nilles,Eng-Electrical,"Johnson, Jeffrey",Active,8/18/25,9 mos.,   ---,8/18/25
+101412,Nolan,Dwenger,Applications Eng,"Davila, Angelica J",Active,8/18/25,9 mos.,   ---,8/18/25
+101413,Krista,Robinson,Aftermarket Sales,"Villarreal, Michaela",Active,8/18/25,9 mos.,   ---,8/18/25
+101410,Megan,Wolfe,Project Mgmt,"Hoffmann, Blake",Active,8/4/25,9 mos.,   ---,8/4/25
+101409,Duane,Introwitz,Eng-Electrical,"Johnson, Jeffrey",Active,7/28/25,10 mos.,   ---,7/28/25
+101407,Kosta,Zafiropoulos,Production Control,"Zaphel, Michael",Active,7/21/25,10 mos.,   ---,7/21/25
+101406,Denitia,Shelley,Production Control,"Zaphel, Michael",Active,7/14/25,10 mos.,   ---,7/14/25
+101396,Aundrea,Baker-Ellison,Field Services,"Pratt, Tyrone",Active,7/7/25,10 mos.,   ---,7/7/25
+101397,Joseph,Blankenship,Field Services,"Pratt, Tyrone",Active,7/7/25,10 mos.,   ---,7/7/25
+101399,Andrea,Andrew,Aftermarket Sales,"Villarreal, Michaela",Active,7/7/25,10 mos.,   ---,7/7/25
+101400,Aaron,Jacobs,Field Services,"Pratt, Tyrone",Active,7/7/25,10 mos.,   ---,7/7/25
+101398,Timothy,Lynch,Production Control,"Zaphel, Michael",Active,6/30/25,11 mos.,   ---,6/30/25
+101395,Ashley,Travis,Production Control,"Zaphel, Michael",Active,6/9/25,11 mos.,   ---,6/9/25
+101389,Madison,Karamagianis,Applications Eng,"Davila, Angelica J",Active,6/2/25,11 mos.,   ---,6/2/25
+101391,Kadin,Woods-Canfield,Research-Dev,"Hatch, Jacob",Active,6/2/25,11 mos.,   ---,6/2/25
+101392,Marilyn,Ngoma,Eng-Electrical,"Johnson, Jeffrey",Active,6/2/25,11 mos.,   ---,6/2/25
+101393,Lucia,Horton,Accounting,"Smith, Justin",Active,6/2/25,11 mos.,   ---,6/2/25
+101394,Eric,Umlauf,Production Control,"Zaphel, Michael",Active,6/2/25,11 mos.,   ---,6/2/25
+101376,Benjamin,Gargani,Eng-Standards,"Smith, David",Active,5/19/25,1 yr.,   ---,5/19/25
+101382,Todd,Neiber,Field Services,"Pratt, Tyrone",Active,5/19/25,1 yr.,   ---,5/19/25
+101384,Kevin,Shelby,Customer Service,"Pratt, Tyrone",Active,5/19/25,1 yr.,   ---,5/19/25
+101385,Zachary,Pirro,Field Services,"Pratt, Tyrone",Active,5/19/25,1 yr.,   ---,5/19/25
+101387,Brian,Blake-Collins,Research-Dev,"Hatch, Jacob",Active,5/19/25,1 yr.,   ---,5/19/25
+101374,Sam,Smith,Research-Dev,"Hatch, Jacob",Active,5/12/25,1 yr.,   ---,5/12/25
+101372,Jordan,Van Barriger,Eng-Estimating,"Groen, Alicia",Active,4/28/25,1 yr.,   ---,4/28/25
+101362,Kelsey,Beaird,Customer Service,"Duchow, Stephanie",Active,4/21/25,1 yr.,   ---,4/21/25
+101363,Kyle,Olson,Eng-Admin,"Wiegand, Robert",Active,4/21/25,1 yr.,   ---,4/21/25
+101367,Michael,Cagle,Customer Service,"Pratt, Tyrone",Active,4/21/25,1 yr.,   ---,4/21/25
+101358,Ramiro,Verastegui,Eng-Estimating,"Groen, Alicia",Active,4/7/25,1 yr.,   ---,4/7/25
+101360,Joseph,Colombi,Manufacturing,"Morgan, Robert",Active,4/7/25,1 yr.,   ---,4/7/25
+101356,Michael,Beair,Production Control,"Hamilton, Jim",Active,3/31/25,1 yr.,   ---,3/31/25
+101357,Terrance,Schwandt,Production Control,"Zaphel, Michael",Active,3/31/25,1 yr.,   ---,3/31/25
+101354,Jim,Hamilton,Administration,"Heasley, Kevin",Active,3/24/25,1 yr.,   ---,3/24/25
+101355,Lucas,Enser,Eng-Standards,"Smith, David",Active,3/24/25,1 yr.,   ---,3/24/25
+101353,Mariano,Rosado,Aftermarket Sales,"Klebs, Paul",Active,3/17/25,1 yr.,   ---,3/17/25
+101351,Francesco,Cascio,Eng-Standards,"Smith, David",Active,3/10/25,1 yr.,   ---,3/10/25
+101212,Darshil,Choksi,Eng-Mechanical,"Durdan, Dan",Active,3/10/25,1 yr.,   ---,3/10/25
+101330,Brian,Crannell,Field Services,"Pratt, Tyrone",Active,3/3/25,1 yr.,   ---,3/3/25
+101347,William,Lenz,Industrial Sales,"Tardio, Joe",Active,3/1/25,1 yr.,   ---,3/1/25
+101343,Aldo,Ramirez,Manufacturing,"Morgan, Robert",Active,1/27/25,1 yr.,   ---,1/27/25
+101338,Daniel,Rodriguez,Eng-Electrical,"Johnson, Jeffrey",Active,1/13/25,1 yr.,   ---,1/13/25
+101339,Richard,Willard,Project Mgmt,"Hoffmann, Blake",Active,1/13/25,1 yr.,   ---,1/13/25
+101340,Tim,Gill,Project Mgmt,"Hoffmann, Blake",Active,1/13/25,1 yr.,   ---,1/13/25
+101331,Nachelle,Osorio,Customer Service,"Duchow, Stephanie",Active,1/6/25,1 yr.,   ---,1/6/25
+101332,Gabriel,Ramirez,Manufacturing,"Morgan, Robert",Active,1/6/25,1 yr.,   ---,1/6/25
+101333,Daniel,Gazinski,Applications Eng,"Knapp, Tamera L",Active,1/6/25,1 yr.,   ---,1/6/25
+101334,Drew,Johnston,Aftermarket Sales,"Klebs, Paul",Active,1/6/25,1 yr.,   ---,1/6/25
+101335,Samuel,Costa,Eng-Electrical,"Johnson, Jeffrey",Active,1/6/25,1 yr.,   ---,1/6/25
+101336,Ethan,Wicks,Eng-Mechanical,"Smith, David",Active,1/6/25,1 yr.,   ---,1/6/25
+101337,Thomas,Kubalewski,Eng-Mechanical,"Durdan, Dan",Active,1/6/25,1 yr.,   ---,1/6/25
+101327,Marcos,Soto,Manufacturing,"Morgan, Robert",Active,11/20/24,1 yr.,   ---,11/20/24
+101326,Rachel,Konefes,Human Resources,"Ustich, Gennie",Active,10/28/24,1 yr.,   ---,10/28/24
+101324,Charles,Petrie,Production Control,"Zaphel, Michael",Active,10/14/24,1 yr.,   ---,10/14/24
+101321,Leeroy,Majewicz,Eng-Electrical,"Johnson, Jeffrey",Active,10/7/24,1 yr.,   ---,10/7/24
+101322,Meera,Manoharan,Applications Eng,"Davila, Angelica J",Active,10/7/24,1 yr.,   ---,10/7/24
+101319,Steve,Saichek,Eng-Electrical,"Johnson, Jeffrey",Active,9/16/24,1 yr.,   ---,9/16/24
+101318,Richard,Santos,Research-Dev,"Hatch, Jacob",Active,9/9/24,1 yr.,   ---,9/9/24
+101315,James,Steffen,Dom Sales-Southeast,"Tardio, Joe",Active,9/1/24,1 yr.,   ---,9/1/24
+101317,Michael,Brown,Dom Sales-East,"Tardio, Joe",Active,9/1/24,1 yr.,   ---,9/1/24
+101313,Faten,Hussein,Applications Eng,"Davila, Angelica J",Active,8/8/24,1 yr.,   ---,8/8/24
+101314,Joshua,Gable,Prod Mgmt-Filtration,"Hughes, Mark",Active,8/5/24,1 yr.,   ---,8/5/24
+101308,Aidan,Morrison,Eng-Electrical,"Johnson, Jeffrey",Active,7/22/24,1 yr.,   ---,7/22/24
+101306,Jeremy,Finnel,Aftermarket Sales,"Klebs, Paul",Active,7/15/24,1 yr.,   ---,7/15/24
+101307,Kayla,Stevens,Applications Eng,"Davila, Angelica J",Active,7/15/24,1 yr.,   ---,7/15/24
+101304,Josh,Layman,Eng-Estimating,"Groen, Alicia",Active,7/1/24,1 yr.,   ---,7/1/24
+101305,Edward,Wright,Eng-Standards,"Smith, David",Active,7/1/24,1 yr.,   ---,7/1/24
+101303,Alla,Vongsiri,Contract Administration,"Johnson, Cathy",Active,6/25/24,1 yr.,   ---,6/25/24
+101296,Ryan,Maldonado,Field Services,"Pratt, Tyrone",Active,6/3/24,1 yr.,   ---,6/3/24
+101297,Nishant,Patel,Eng-Electrical,"Johnson, Jeffrey",Active,6/3/24,1 yr.,   ---,6/3/24
+101295,Charlene,Kepler,Contract Administration,"Johnson, Cathy",Active,5/29/24,2 yrs.,   ---,5/29/24
+101294,Sharri,Greenlee,Customer Service,"Duchow, Stephanie",Active,5/28/24,2 yrs.,   ---,5/28/24
+101292,Joshua,Long,Manufacturing,"Barber, Mike",Active,5/7/24,2 yrs.,   ---,5/7/24
+101290,Seth,Antczak,Research-Dev,"Hatch, Jacob",Active,4/22/24,2 yrs.,   ---,4/22/24
+101289,Marcus,Ippolito,Eng-Mechanical,"Smith, David",Active,3/25/24,2 yrs.,   ---,3/25/24
+101287,Richard,Rutherford,Field Services,"Pratt, Tyrone",Active,3/18/24,2 yrs.,   ---,3/18/24
+101286,Eric,Johnson,Manufacturing,"Barber, Mike",Active,3/11/24,2 yrs.,   ---,3/11/24
+101285,Micah,Carlson,Eng-Electrical,"Johnson, Jeffrey",Active,2/26/24,2 yrs.,   ---,2/26/24
+101145,Joshua,Frieze,Field Services,"Pratt, Tyrone",Active,2/26/24,2 yrs.,   ---,2/26/24
+101283,Michael,Swartz,Project Mgmt,"Hoffmann, Blake",Active,2/19/24,2 yrs.,   ---,2/19/24
+101282,Ian,Stohr,Production Control,"Hamilton, Jim",Active,2/12/24,2 yrs.,   ---,2/12/24
+101279,Christine,Reyes,Marketing-PR,"Kunz, Cheryl",Active,2/5/24,2 yrs.,   ---,2/5/24
+101280,Brad,Smith,Field Services,"Pratt, Tyrone",Active,2/5/24,2 yrs.,   ---,7/9/25
+101276,Jeff,Alaniz,Project Mgmt,"Hoffmann, Blake",Active,12/11/23,2 yrs.,   ---,12/11/23
+101277,Jim,Evans,Project Mgmt,"Hoffmann, Blake",Active,12/11/23,2 yrs.,   ---,12/11/23
+101272,Aaron,Halloway,Eng-Standards,"Schneider, Gerald S",Active,11/27/23,2 yrs.,   ---,11/27/23
+101275,Raymond,Ayala,Field Services,"Pratt, Tyrone",Active,11/27/23,2 yrs.,   ---,11/27/23
+101271,Paul,Gurin,Contract Administration,"Johnson, Cathy",Active,11/13/23,2 yrs.,   ---,11/13/23
+101268,Christopher,White,Field Services,"Pratt, Tyrone",Active,10/30/23,2 yrs.,   ---,10/30/23
+101270,Robert,Morgan,Production Control,"Hamilton, Jim",Active,10/30/23,2 yrs.,   ---,10/30/23
+101267,Christapher,Flud,Manufacturing,"Morgan, Robert",Active,10/2/23,2 yrs.,   ---,10/2/23
+101264,Michael,Van Hauen,Manufacturing,"Barber, Mike",Active,9/18/23,2 yrs.,   ---,9/18/23
+101265,Jacob,Hatch,Research-Dev,"Reid, Terence",Active,9/18/23,2 yrs.,   ---,9/18/23
+101266,Camilo,Rodriguez,Field Services,"Pratt, Tyrone",Active,9/18/23,2 yrs.,   ---,9/18/23
+101263,Jeffrey,Johnson,Eng-Electrical,"Wiegand, Robert",Active,9/11/23,2 yrs.,   ---,9/11/23
+101262,Carmen,Shields,Information Services,"Williams, Steven J",Active,8/30/23,2 yrs.,   ---,8/30/23
+101260,Zachery,Swanson,Aftermarket Sales,"Klebs, Paul",Active,8/14/23,2 yrs.,   ---,8/14/23
+101259,Kenta,Cojerian,Applications Eng,"Davila, Angelica J",Active,7/11/23,2 yrs.,   ---,7/11/23
+101258,Connor,Johnson,Eng-Electrical,"Johnson, Jeffrey",Active,6/26/23,2 yrs.,   ---,6/26/23
+101255,Ray,Watkins,Eng-Mechanical,"Durdan, Dan",Active,6/19/23,2 yrs.,   ---,6/19/23
+101257,Joe,Wakefield,Eng-Mechanical,"Durdan, Dan",Active,6/19/23,2 yrs.,   ---,6/19/23
+101254,Chelsey,Matthews,Accounting,"Smith, Justin",Active,6/7/23,2 yrs.,   ---,6/7/23
+101251,Natalie,Watson,Applications Eng,"Knapp, Tamera L",Active,5/30/23,3 yrs.,   ---,5/30/23
+101252,Nicholas,Schiavo,Applications Eng,"Knapp, Tamera L",Active,5/30/23,3 yrs.,   ---,5/30/23
+101253,Stephanie,Duchow,Customer Service,"Horton, James",Active,5/30/23,3 yrs.,   ---,5/30/23
+101249,Nick,Schroeder,Information Services,"Williams, Steven J",Active,5/23/23,3 yrs.,   ---,5/23/23
+101250,Mark,Milligan,Information Services,"Williams, Steven J",Active,5/23/23,3 yrs.,   ---,5/23/23
+101247,Gordon,Bates,Manufacturing,"Barber, Mike",Active,5/22/23,3 yrs.,   ---,5/22/23
+101243,Alex,Neisewander,Eng-Mechanical,"Durdan, Dan",Active,4/24/23,3 yrs.,   ---,4/24/23
+101333,James,Knight,Prod Mgmt-Aer-Mix,"Klebs, Paul",Active,4/19/23,3 yrs.,   ---,4/20/23
+101242,Carrie,Hunter,Eng-Admin,"Wiegand, Robert",Active,4/18/23,3 yrs.,   ---,4/18/23
+101240,Gabriela,Alvarado,Aftermarket Sales,"Klebs, Paul",Active,4/4/23,3 yrs.,   ---,4/4/23
+101238,Bryn,Larson,Production Control,"Zaphel, Michael",Active,3/27/23,3 yrs.,   ---,3/27/23
+101239,Cathy,Johnson,Contract Administration,"Hoffmann, Blake",Active,3/27/23,3 yrs.,   ---,3/27/23
+101237,David,Fisher,Intl Sales,"Tardio, Joe",Active,3/20/23,3 yrs.,   ---,3/20/23
+101235,Dave,Lamphere,Prod Mgmt-Biological,"Hughes, Mark",Active,3/6/23,3 yrs.,   ---,3/1/23
+101229,Tina,Graham,Project Mgmt,"Hoffmann, Blake",Active,2/27/23,3 yrs.,   ---,2/27/23
+101230,Zachary,Dal Pra,Eng-Estimating,"Groen, Alicia",Active,2/27/23,3 yrs.,   ---,2/27/23
+101233,Anthony,Hart,Field Services,"Pratt, Tyrone",Active,2/27/23,3 yrs.,   ---,2/27/23
+101227,Monica,Alfano,Marketing-PR,"Kunz, Cheryl",Active,1/9/23,3 yrs.,   ---,1/9/23
+101226,Brian,Huyge,Applications Eng,"Knapp, Tamera L",Active,1/3/23,3 yrs.,   ---,7/5/23
+101223,Mitchell,McMahon,Applications Eng,"Knapp, Tamera L",Active,12/19/22,3 yrs.,   ---,12/19/22
+101224,Chris,Guntermann,Eng-Electrical,"Johnson, Jeffrey",Active,12/19/22,3 yrs.,   ---,12/19/22
+101222,Aridane,Rodriguez,Field Services,"Pratt, Tyrone",Active,11/28/22,3 yrs.,   ---,11/28/22
+101220,Sarah,Gamble,Contract Administration,"Johnson, Cathy",Active,9/26/22,3 yrs.,   ---,9/26/22
+101219,Traci,Kreitzmann,Project Mgmt,"Hoffmann, Blake",Active,9/20/22,3 yrs.,   ---,9/20/22
+101218,Dion,Jones,Manufacturing,"Barber, Mike",Active,9/19/22,3 yrs.,   ---,9/19/22
+101217,Bryce,Hatfield,Applications Eng,"Knapp, Tamera L",Active,9/13/22,3 yrs.,   ---,9/13/22
+101213,Matthew,Martineau,Eng-Mechanical,"Durdan, Dan",Active,6/20/22,3 yrs.,   ---,6/20/22
+101211,Justin,Smith,Accounting,"Willis, Scott",Active,5/23/22,4 yrs.,   ---,5/23/22
+101209,Jeff,Wheaton,Field Services,"Pratt, Tyrone",Active,5/2/22,4 yrs.,   ---,5/2/22
+101204,Jackson,Blacketer,Field Services,"Pratt, Tyrone",Active,3/14/22,4 yrs.,   ---,3/14/22
+101205,Thomas,Mangione,Aftermarket Sales,"Villarreal, Michaela",Active,3/14/22,4 yrs.,   ---,3/14/22
+101203,Kevin,Bursell II,Manufacturing,"Barber, Mike",Active,2/21/22,4 yrs.,   ---,2/21/22
+101199,Eduard,Schardl,Eng-Electrical,"Johnson, Jeffrey",Active,1/17/22,4 yrs.,   ---,1/17/22
+101198,Vedansh,Gupta,Prod Mgmt-Filtration,"Hughes, Mark",Active,12/13/21,4 yrs.,   ---,12/13/21
+101197,Patricia,Carlson,Customer Service,"Duchow, Stephanie",Active,12/6/21,4 yrs.,   ---,12/6/21
+101196,Xu,Ye,Applications Eng,"Davila, Angelica J",Active,11/29/21,4 yrs.,   ---,11/29/21
+101193,Carol,Fields,Production Control,"Zaphel, Michael",Active,11/2/21,4 yrs.,   ---,11/2/21
+101191,Brant,Uppenkamp,Eng-Standards,"Smith, David",Active,9/20/21,4 yrs.,   ---,9/20/21
+101190,Michael,Rushing,Field Services,"Pratt, Tyrone",Active,9/13/21,4 yrs.,   ---,9/13/21
+101185,Bryce,Worley,Eng-Mechanical,"Durdan, Dan",Active,7/6/21,4 yrs.,   ---,7/6/21
+101186,James,Casey,Production Control,"Zaphel, Michael",Active,7/6/21,4 yrs.,   ---,7/6/21
+101184,Harrison,DeBruler,Applications Eng,"Knapp, Tamera L",Active,5/24/21,5 yrs.,   ---,5/24/21
+101183,Loryn,Martin,Prod Mgmt-Aer-Mix,"Klebs, Paul",Active,4/19/21,5 yrs.,   ---,4/19/21
+101180,Sarah,Villacorta,Applications Eng,"Knapp, Tamera L",Active,10/13/20,5 yrs.,   ---,10/13/20
+101176,Dean,Woyak,Field Services,"Pratt, Tyrone",Active,6/1/20,5 yrs.,   ---,6/1/20
+101174,Bill,Douglas,Eng-Electrical,"Johnson, Jeffrey",Active,5/4/20,6 yrs.,   ---,5/4/20
+101169,Joe,Tardio,Administration,"Horton, James",Active,3/2/20,6 yrs.,   ---,3/2/20
+101166,Edward,Sanchez,Field Services,"Pratt, Tyrone",Active,12/2/19,6 yrs.,   ---,12/2/19
+101165,Michael,Spragg,Customer Service,"Duchow, Stephanie",Active,10/21/19,6 yrs.,   ---,10/21/19
+101163,Noah,Dellamater,Eng-Standards,"Smith, David",Active,8/12/19,6 yrs.,   ---,8/12/19
+101156,Nicholas,Fortsas,Applications Eng,"Knapp, Tamera L",Active,5/20/19,7 yrs.,   ---,5/20/19
+101155,Kent,Campbell,Eng-Electrical,"Johnson, Jeffrey",Active,3/4/19,7 yrs.,   ---,3/4/19
+101153,Thea,Davis,Applications Eng,"Quimby, Brett M",Active,1/28/19,7 yrs.,   ---,10/10/22
+101152,Kristy,Chycota,Prod Mgmt-Filtration,"Hughes, Mark",Active,1/7/19,7 yrs.,   ---,1/7/19
+101151,Blake,Hoffmann,Project Mgmt,"Heasley, Kevin",Active,11/12/18,7 yrs.,   ---,11/12/18
+101149,Malcolm,Aylward,Production Control,"Zaphel, Michael",Active,7/22/18,7 yrs.,   ---,7/23/18
+101148,Paul,Stanek,Information Services,"Williams, Steven J",Active,7/16/18,7 yrs.,   ---,7/16/18
+101144,Brady,Burk,Production Control,"Zaphel, Michael",Active,6/25/18,7 yrs.,   ---,6/25/18
+101139,Michaela,Villarreal,Aftermarket Sales,"Klebs, Paul",Active,5/22/18,8 yrs.,   ---,5/22/18
+101138,Paula,Dorn,Prod Mgmt-Biological,"Quimby, Brett M",Active,4/9/18,8 yrs.,   ---,4/9/18
+101137,Emily,Kullberg,Aftermarket Sales,"Villarreal, Michaela",Active,4/2/18,8 yrs.,   ---,4/2/18
+101134,Evan,Price,Field Services,"Pratt, Tyrone",Active,3/5/18,8 yrs.,   ---,3/5/18
+101132,Shawn,Butterfield,Project Mgmt,"Hoffmann, Blake",Active,2/12/18,8 yrs.,   ---,2/12/18
+101131,Mike,Barber,Manufacturing,"Hamilton, Jim",Active,2/5/18,8 yrs.,   ---,2/5/18
+101129,Jay,Patch,Production Control,"Zaphel, Michael",Active,12/18/17,8 yrs.,   ---,12/18/17
+101126,Scott,Kelly,Dom Sales-West,"Tardio, Joe",Active,9/12/17,8 yrs.,   ---,9/12/17
+101121,Kevin,Bursell,Manufacturing,"Barber, Mike",Active,8/28/17,8 yrs.,   ---,8/28/17
+101122,John,Edelen,Field Services,"Pratt, Tyrone",Active,8/28/17,8 yrs.,   ---,8/28/17
+101120,Christian,Kurshinsky,Research-Dev,"Hatch, Jacob",Active,7/31/17,8 yrs.,   ---,7/31/17
+101118,Leann,Torrisi,Aftermarket Sales,"Klebs, Paul",Active,6/26/17,8 yrs.,   ---,6/26/17
+101109,Gennie,Ustich,Human Resources,"Appino, Pamela K",Active,10/17/16,9 yrs.,   ---,10/17/16
+101107,Pamela,Appino,Human Resources,"Horton, James",Active,9/6/16,9 yrs.,   ---,9/6/16
+101106,Bradley,Christian,Eng-Electrical,"Johnson, Jeffrey",Active,8/22/16,9 yrs.,   ---,8/22/16
+101102,Benjamin,Morton,Field Services,"Pratt, Tyrone",Active,7/11/16,9 yrs.,   ---,7/11/16
+101101,John,Dyson,Prod Mgmt-Filtration,"Hughes, Mark",Active,6/20/16,9 yrs.,   ---,6/20/16
+101087,Mondi,Anderson,Eng-Electrical,"Johnson, Jeffrey",Active,5/1/16,10 yrs.,   ---,7/1/07
+101088,Anthony,Smith,Field Services,"Pratt, Tyrone",Active,5/1/16,10 yrs.,   ---,5/1/16
+101090,Junji,Sakashita,Eng-Standards,"Schneider, Gerald S",Active,5/1/16,10 yrs.,   ---,5/1/16
+101092,Joseph,Campanaro,Research-Dev,"Hatch, Jacob",Active,5/1/16,10 yrs.,   ---,5/1/16
+101085,Barry,Miller,Manufacturing,"Barber, Mike",Active,4/18/16,10 yrs.,   ---,4/18/16
+101083,Brett,Quimby,Prod Mgmt-Biological,"Hughes, Mark",Active,4/4/16,10 yrs.,   ---,4/4/16
+101081,Carla,Morrison,Production Control,"Zaphel, Michael",Active,3/21/16,10 yrs.,   ---,3/21/16
+101077,Denise,Uchacz,Aftermarket Sales,"Villarreal, Michaela",Active,10/5/15,10 yrs.,   ---,10/5/15
+101076,Darryl,Gravagno,Research-Dev,"Hatch, Jacob",Active,9/28/15,10 yrs.,   ---,9/28/15
+101070,Denise,Boehm,Aftermarket Sales,"Villarreal, Michaela",Active,3/16/15,11 yrs.,   ---,3/16/15
+101068,John,Summers,Information Services,"Williams, Steven J",Active,12/29/14,11 yrs.,   ---,1/5/15
+101066,Danita,Podraza,Accounting,"Willis, Scott",Active,11/17/14,11 yrs.,   ---,11/17/14
+101065,Steven,Stanish,Dom Sales-Midwest,"Tardio, Joe",Active,11/10/14,11 yrs.,   ---,11/10/14
+101062,Steven,Williams,Accounting,"Willis, Scott",Active,9/8/14,11 yrs.,   ---,9/8/14
+101060,Elizabeth,Barber,Accounting,"Willis, Scott",Active,5/20/14,12 yrs.,   ---,2/24/22
+101057,Tatiana,Mazzei,Applications Eng,"Knapp, Tamera L",Active,9/23/13,12 yrs.,   ---,9/23/13
+101051,Angelica,Davila,Applications Eng,"Knapp, Tamera L",Active,4/22/13,13 yrs.,   ---,4/22/13
+101049,Sandra,Arbisi,Human Resources,"Appino, Pamela K",Active,4/15/13,13 yrs.,   ---,4/15/13
+101032,Ranee A,Anderson,Eng-Admin,"Wiegand, Robert",Active,4/18/11,15 yrs.,   ---,4/18/11
+101029,Tyrone,Pratt,Customer Service,"Duchow, Stephanie",Active,2/21/11,15 yrs.,   ---,2/21/11
+101030,Mark,Hughes,Prod Mgmt-Filtration,"Horton, James",Active,2/21/11,15 yrs.,   ---,2/21/11
+101017,Rose,Melody,Administration,"Horton, James",Active,1/4/10,16 yrs.,   ---,1/4/10
+101010,Charles B,Konkol Jr.,Information Services,"Williams, Steven J",Active,1/5/09,17 yrs.,   ---,1/5/09
+101000,Velvet,Lange,Accounting,"Barber, Elizabeth N",Active,7/21/08,17 yrs.,   ---,7/21/08
+101998,Jeremy J,Try,Eng-Electrical,"Johnson, Jeffrey",Active,5/19/08,18 yrs.,   ---,5/19/08
+101993,Michael,Schmitz,Eng-Standards,"Smith, David",Active,3/3/08,18 yrs.,   ---,3/3/08
+101991,Alicia,Groen,Eng-Estimating,"Wiegand, Robert",Active,2/4/08,18 yrs.,   ---,2/4/08
+101988,Ruth,Huber,Project Mgmt,"Hoffmann, Blake",Active,12/10/07,18 yrs.,   ---,12/10/07
+101982,Michael,Zaphel,Production Control,"Heasley, Kevin",Active,6/11/07,18 yrs.,   ---,6/11/07
+101979,Chris,Carlson,Eng-Mechanical,"Durdan, Dan",Active,5/14/07,19 yrs.,   ---,5/14/07
+101041,Thomas J,Mowery,Field Services,"Pratt, Tyrone",Active,5/7/07,19 yrs.,   ---,5/7/07
+101975,Scott,Tripp,Eng-Estimating,"Groen, Alicia",Active,1/9/07,19 yrs.,   ---,1/9/07
+101973,Dave,Holland,Prod Mgmt-Biological,"Lamphere, Dave",Active,1/2/07,19 yrs.,   ---,1/2/07
+101964,Scott A.,Howarth,Eng-Mechanical,"Durdan, Dan",Active,6/12/06,19 yrs.,   ---,6/12/06
+101963,Timothy W,Austin,Eng-Mechanical,"Durdan, Dan",Active,6/7/06,19 yrs.,   ---,6/7/06
+101045,Curt,Larson,Field Services,"Pratt, Tyrone",Active,4/3/06,20 yrs.,   ---,4/3/06
+101932,Barbara J.,Kinroth,Contract Administration,"Johnson, Cathy",Active,8/8/05,20 yrs.,   ---,8/8/05
+101930,Daniel E,Burns,Information Services,"Williams, Steven J",Active,5/31/05,21 yrs.,   ---,5/31/05
+101925,Dan,Durdan,Eng-Mechanical,"Wiegand, Robert",Active,3/7/05,21 yrs.,   ---,3/7/05
+101947,Rungrod,Jittawattanarat,Applications Eng,"Knapp, Tamera L",Active,3/7/05,21 yrs.,   ---,3/7/05
+101921,Tamera,Knapp,Applications Eng,"Hughes, Mark",Active,11/1/04,21 yrs.,   ---,11/1/04
+101916,Gerald S.,Schneider,Eng-Electrical,"Wiegand, Robert",Active,6/21/04,21 yrs.,   ---,6/21/04
+101885,Georgia,Van Laeke,Accounting,"Smith, Justin",Active,5/12/03,23 yrs.,   ---,5/12/03
+101881,Michael,Hevey,Eng-Electrical,"Schneider, Gerald S",Active,2/10/03,23 yrs.,   ---,2/10/03
+101046,Manuel,De Los Santos,Prod Mgmt-Biological,"Hughes, Mark",Active,8/19/02,23 yrs.,   ---,8/19/02
+101863,Joseph,Massari,Eng-Mechanical,"Durdan, Dan",Active,4/29/02,24 yrs.,   ---,4/29/02
+101861,Thomas,Fenton,Project Mgmt,"Hoffmann, Blake",Active,4/22/02,24 yrs.,   ---,4/22/02
+101859,Todd,Welsh,Accounting,"Willis, Scott",Active,3/4/02,24 yrs.,   ---,3/4/02
+101847,Daniel,Anderson,Manufacturing,"Morgan, Robert",Active,9/17/01,24 yrs.,   ---,9/17/01
+101838,Beth,Bahr,Eng-Mechanical,"Durdan, Dan",Active,5/7/01,25 yrs.,   ---,5/7/01
+101009,James,Horton,Administration,,Active,11/13/00,25 yrs.,   ---,11/13/00
+101826,Kevin,Heasley,Administration,"Horton, James",Active,11/7/00,25 yrs.,   ---,11/7/00
+101825,David,Smith,Eng-Standards,"Wiegand, Robert",Active,10/30/00,25 yrs.,   ---,10/30/00
+101822,David,Johnson,Eng-Electrical,"Johnson, Jeffrey",Active,9/29/00,25 yrs.,   ---,9/29/00
+101821,Brian,Pass,Eng-Electrical,"Johnson, Jeffrey",Active,9/25/00,25 yrs.,   ---,9/25/00
+101817,Timothy,Lamont,Aftermarket Sales,"Villarreal, Michaela",Active,8/10/00,25 yrs.,   ---,8/10/00
+101999,Robert,Wiegand,Eng-Admin,"Horton, James",Active,3/13/00,26 yrs.,   ---,3/13/00
+101746,Patricea,Meyer,Accounting,"Barber, Elizabeth N",Active,8/25/97,28 yrs.,   ---,8/25/97
+101738,Staci,Lyman,Production Control,"Zaphel, Michael",Active,1/23/97,29 yrs.,   ---,1/23/97
+101725,Paul,Klebs,Aftermarket Sales,"Horton, James",Active,6/24/96,29 yrs.,   ---,6/24/96
+101695,Scott,Willis,Accounting,"Horton, James",Active,8/7/95,30 yrs.,   ---,8/7/95
+101647,Deborah,Heasley,Intl Sales,"Fisher, David",Active,11/16/92,33 yrs.,   ---,11/16/92
+101584,Terence,Reid,Research-Dev,"Heasley, Kevin",Active,6/13/89,36 yrs.,   ---,6/13/89
+101575,Cheryl,Kunz,Marketing-PR,"Tardio, Joe",Active,4/3/89,37 yrs.,   ---,4/3/89
+101012,Michael,Jenkins,Manufacturing,"Barber, Mike",Active,7/24/78,47 yrs.,   ---,7/24/78
+

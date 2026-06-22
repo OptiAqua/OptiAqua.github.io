@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OptiAqua Analytics | Aqua-Aerobic Systems, Inc.</title>
+  <meta name="description"
+    content="OptiAqua Analytics Platform — Real-time operational intelligence for Sales, Marketing, Shipping, HR, IT Projects, and Competitive Insights at Aqua-Aerobic Systems, Inc." />
+  <meta name="theme-color" content="#00529C" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="firebase-init.js"></script>
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ===== SIDEBAR NAV ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 4C20 4 8 14 8 22C8 28.627 13.373 34 20 34C26.627 34 32 28.627 32 22C32 14 20 4 20 4Z"
+            fill="url(#dropGrad)" />
+          <path d="M15 24C15 21.239 17.239 19 20 19" stroke="rgba(255,255,255,0.6)" stroke-width="2"
+            stroke-linecap="round" />
+          <defs>
+            <linearGradient id="dropGrad" x1="20" y1="4" x2="20" y2="34" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#29AAE2" />
+              <stop offset="1" stop-color="#0077B6" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">OptiAqua</span>
+        <span class="brand-sub">Analytics</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Dashboard navigation">
+      <div class="nav-section-label">Dashboards</div>
+      <ul class="nav-list">
+        <li>
+          <a href="#" class="nav-link active" id="nav-overview" data-section="overview" aria-current="page">
+            <span class="nav-icon">⬡</span>
+            <span class="nav-label">Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-sales" data-section="sales">
+            <span class="nav-icon">📈</span>
+            <span class="nav-label">Sales</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-marketing" data-section="marketing">
+            <span class="nav-icon">📣</span>
+            <span class="nav-label">Marketing</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-shipping" data-section="shipping">
+            <span class="nav-icon">🚢</span>
+            <span class="nav-label">Shipping</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-hr" data-section="hr">
+            <span class="nav-icon">👥</span>
+            <span class="nav-label">HR</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link" id="nav-competition" data-section="competition">
+            <span class="nav-icon">🏆</span>
+            <span class="nav-label">Competition</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-section-label">Internal Tools</div>
+      <ul class="nav-list nav-list-tools">
+        <li>
+          <a href="https://aquaguide.app/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">📖</span>
+            <span class="nav-label">Aqua Guide 1-Minute App</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://aqualocator.github.io/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">📍</span>
+            <span class="nav-label">AQUALocator</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.aqua-aerobic.net:3000/hrchat/" target="_blank" rel="noopener"
+            class="nav-link nav-link-external">
+            <span class="nav-icon">🤖</span>
+            <span class="nav-label">AVA – HR AI</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.aqua-aerobic.net:3000/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">🔍</span>
+            <span class="nav-label">Company Search</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://aqua88:5076/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">CSD Live</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://aquaerprep/Reports/report/ITReports/AquaEmployeeStatus" target="_blank" rel="noopener"
+            class="nav-link nav-link-external">
+            <span class="nav-icon">👤</span>
+            <span class="nav-label">Employee Status</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.aqua-aerobic.net:5000/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">🔧</span>
+            <span class="nav-label">Field Service</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.aqua-aerobic.net:5555/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">🎫</span>
+            <span class="nav-label">IT HelpDesk</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.aqua-aerobic.net:4000/dashboard.html" target="_blank" rel="noopener"
+            class="nav-link nav-link-external">
+            <span class="nav-icon">📋</span>
+            <span class="nav-label">Master Pack List</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.aqua-aerobic.net:5084/" target="_blank" rel="noopener" class="nav-link nav-link-external">
+            <span class="nav-icon">⚡</span>
+            <span class="nav-label">Panel Progress</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://aquavisitorsystem.github.io/" target="_blank" rel="noopener"
+            class="nav-link nav-link-external">
+            <span class="nav-icon">🪪</span>
+            <span class="nav-label">Visitor System</span>
+            <span class="ext-badge">↗</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="https://aqua-aerobic.com/" target="_blank" rel="noopener" class="company-link" id="company-website-link">
+        <img src="https://aqua-aerobic.com/wp-content/uploads/2018/01/aqua-aerobics-logo-1.png"
+          alt="Aqua-Aerobic Systems" class="company-logo"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="company-logo-fallback" style="display:none">Aqua-Aerobic Systems, Inc.</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main-wrapper" id="main-wrapper">
+
+    <!-- Top Header Bar -->
+    <header class="topbar" role="banner">
+      <div class="topbar-left">
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="true">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="page-breadcrumb">
+          <span class="breadcrumb-section" id="breadcrumb-label">Overview</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="live-indicator" aria-label="Live data feed active">
+          <span class="live-dot"></span>
+          <span>LIVE</span>
+        </div>
+        <div class="last-sync-badge" id="last-sync-badge" title="Data last refreshed from Firestore" aria-live="polite">
+          <span class="sync-icon">🔄</span>
+          <span id="last-sync-label">Loading...</span>
+        </div>
+        <div class="topbar-time" id="topbar-clock" aria-live="polite"></div>
+        <div class="topbar-user">
+          <div class="user-avatar" aria-hidden="true">AAS</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sections Container -->
+    <main class="content-area" id="content-area" role="main">
+
+      <!-- ===== OVERVIEW ===== -->
+      <section class="dashboard-section active" id="section-overview" aria-labelledby="overview-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="overview-heading" class="section-title">Command Center</h1>
+            <p class="section-subtitle">Real-time operational snapshot — Aqua-Aerobic Systems, Inc.</p>
+          </div>
+          <div class="section-actions">
+            <button class="btn-secondary" id="refresh-overview" aria-label="Refresh overview data">↻ Refresh</button>
+          </div>
+        </div>
+
+        <!-- KPI Cards Row -->
+        <div class="kpi-grid" role="list">
+          <article class="kpi-card kpi-blue" role="listitem">
+            <div class="kpi-icon" aria-hidden="true">📈</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Active Bids</div>
+              <div class="kpi-value" id="kpi-bids">—</div>
+              <div class="kpi-delta kpi-up" id="kpi-bids-delta">Loading…</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan" role="listitem">
+            <div class="kpi-icon" aria-hidden="true">💰</div>
+            <div class="kpi-body">
+              <div class="kpi-label">YTD Revenue</div>
+              <div class="kpi-value" id="kpi-revenue">—</div>
+              <div class="kpi-delta kpi-up" id="kpi-revenue-delta">Loading…</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-teal" role="listitem">
+            <div class="kpi-icon" aria-hidden="true">🚢</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Shipments This Month</div>
+              <div class="kpi-value" id="kpi-shipments">—</div>
+              <div class="kpi-delta kpi-up" id="kpi-shipments-delta">Loading…</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-navy" role="listitem">
+            <div class="kpi-icon" aria-hidden="true">👥</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Total Headcount</div>
+              <div class="kpi-value" id="kpi-headcount">—</div>
+              <div class="kpi-delta" id="kpi-headcount-delta">Loading…</div>
+            </div>
+          </article>
+
+          <article class="kpi-card kpi-gold" role="listitem">
+            <div class="kpi-icon" aria-hidden="true">🏆</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Win Rate</div>
+              <div class="kpi-value" id="kpi-winrate">—</div>
+              <div class="kpi-delta kpi-up" id="kpi-winrate-delta">Loading…</div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+          <div class="chart-card chart-large">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Revenue Trend (12 Months)</h2>
+              <div class="chart-legend" id="revenue-legend"></div>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-revenue-trend" aria-label="Revenue trend chart" role="img"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Department Activity</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-dept-activity" aria-label="Department activity radar chart" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Launcher -->
+        <div class="app-launcher-section">
+          <h2 class="section-sub-heading">Quick Launch — Internal Tools</h2>
+          <div class="app-launcher-grid" role="list">
+            <a href="https://aquaguide.app/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#48CAE4,#0096C7)" aria-hidden="true">
+                📖</div>
+              <span class="app-tile-name">Aqua Guide 1-Minute App</span>
+              <span class="app-tile-desc">1-Minute reference guide</span>
+            </a>
+            <a href="https://aqualocator.github.io/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#005F73,#94D2BD)" aria-hidden="true">
+                📍</div>
+              <span class="app-tile-name">AQUALocator</span>
+              <span class="app-tile-desc">Asset locator tool</span>
+            </a>
+            <a href="http://www.aqua-aerobic.net:3000/hrchat/" target="_blank" rel="noopener" class="app-tile"
+              role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#7B2D8B,#29AAE2)" aria-hidden="true">
+                🤖</div>
+              <span class="app-tile-name">AVA – HR AI</span>
+              <span class="app-tile-desc">HR AI assistant</span>
+            </a>
+            <a href="http://www.aqua-aerobic.net:3000/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#00529C,#29AAE2)" aria-hidden="true">
+                🔍</div>
+              <span class="app-tile-name">Company Search</span>
+              <span class="app-tile-desc">Node.js intranet search</span>
+            </a>
+            <a href="http://aqua88:5076/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#0077B6,#48CAE4)" aria-hidden="true">
+                📊</div>
+              <span class="app-tile-name">CSD Live</span>
+              <span class="app-tile-desc">Customer service dashboard</span>
+            </a>
+            <a href="http://aquaerprep/Reports/report/ITReports/AquaEmployeeStatus" target="_blank" rel="noopener"
+              class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#00529C,#00C897)" aria-hidden="true">
+                👤</div>
+              <span class="app-tile-name">Employee Status</span>
+              <span class="app-tile-desc">SSRS HR report (aquaerprep)</span>
+            </a>
+            <a href="http://www.aqua-aerobic.net:5000/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#023E8A,#0096C7)" aria-hidden="true">
+                🔧</div>
+              <span class="app-tile-name">Field Service</span>
+              <span class="app-tile-desc">Schedule dashboard</span>
+            </a>
+            <a href="http://www.aqua-aerobic.net:5555/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#03045E,#0077B6)" aria-hidden="true">
+                🎫</div>
+              <span class="app-tile-name">IT HelpDesk</span>
+              <span class="app-tile-desc">Ticket management</span>
+            </a>
+            <a href="http://www.aqua-aerobic.net:4000/dashboard.html" target="_blank" rel="noopener" class="app-tile"
+              role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#B5451B,#F4A261)" aria-hidden="true">
+                📋</div>
+              <span class="app-tile-name">Master Pack List</span>
+              <span class="app-tile-desc">Packing list dashboard</span>
+            </a>
+            <a href="http://www.aqua-aerobic.net:5084/" target="_blank" rel="noopener" class="app-tile" role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#6A0572,#29AAE2)" aria-hidden="true">⚡
+              </div>
+              <span class="app-tile-name">Panel Progress</span>
+              <span class="app-tile-desc">ELENG resource group</span>
+            </a>
+            <a href="https://aquavisitorsystem.github.io/" target="_blank" rel="noopener" class="app-tile"
+              role="listitem">
+              <div class="app-tile-icon" style="background:linear-gradient(135deg,#1B4332,#52B788)" aria-hidden="true">
+                🪪</div>
+              <span class="app-tile-name">Visitor System</span>
+              <span class="app-tile-desc">Visitor management</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SALES ===== -->
+      <section class="dashboard-section" id="section-sales" aria-labelledby="sales-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="sales-heading" class="section-title">Sales Analytics</h1>
+            <p class="section-subtitle">EpicorLive · Neptune · Sales pipeline and bid tracking</p>
+          </div>
+          <div class="section-actions">
+            <select class="select-filter" id="sales-period-filter" aria-label="Select time period">
+              <option value="mtd">Month to Date</option>
+              <option value="qtd">Quarter to Date</option>
+              <option value="ytd" selected>Year to Date</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-4">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-icon">💼</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Total Bids</div>
+              <div class="kpi-value" id="sales-total-bids">—</div>
+              <div class="kpi-delta kpi-up" id="sales-bids-delta">Loading…</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan">
+            <div class="kpi-icon">✅</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Won</div>
+              <div class="kpi-value" id="sales-won">—</div>
+              <div class="kpi-delta kpi-up">vs last period</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-teal">
+            <div class="kpi-icon">⏳</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Pending</div>
+              <div class="kpi-value" id="sales-pending">—</div>
+              <div class="kpi-delta">In pipeline</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-gold">
+            <div class="kpi-icon">💰</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Backlog Value</div>
+              <div class="kpi-value" id="sales-backlog">—</div>
+              <div class="kpi-delta kpi-up">YTD</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-large">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Orders by Product Line</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-sales-product" aria-label="Orders by product line" role="img"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Bid Status Distribution</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-sales-bids" aria-label="Bid status distribution" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-full">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Monthly Sales vs Target</h2>
+            </div>
+            <div class="chart-container chart-container-sm">
+              <canvas id="chart-sales-target" aria-label="Monthly sales vs target" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <div class="table-header">
+            <h2 class="chart-title">Recent Bids — EpicorLive / Neptune</h2>
+            <div class="db-badge">
+              <span class="db-dot"></span>aquaerpdb · EpicorLive
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table" id="sales-bids-table">
+              <thead>
+                <tr>
+                  <th scope="col">Bid #</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Product Line</th>
+                  <th scope="col">Value</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Rep</th>
+                  <th scope="col">Due Date</th>
+                </tr>
+              </thead>
+              <tbody id="sales-bids-tbody">
+                <tr>
+                  <td colspan="7" class="loading-row">Connecting to EpicorLive database…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== MARKETING ===== -->
+      <section class="dashboard-section" id="section-marketing" aria-labelledby="marketing-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="marketing-heading" class="section-title">Marketing Analytics</h1>
+            <p class="section-subtitle">Campaign performance, web traffic, and lead generation</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-4">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-icon">🌐</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Web Sessions</div>
+              <div class="kpi-value" id="mkt-sessions">—</div>
+              <div class="kpi-delta kpi-up">This month</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan">
+            <div class="kpi-icon">📥</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Inbound Leads</div>
+              <div class="kpi-value" id="mkt-leads">—</div>
+              <div class="kpi-delta kpi-up">This month</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-teal">
+            <div class="kpi-icon">📧</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Email Open Rate</div>
+              <div class="kpi-value" id="mkt-email-rate">—</div>
+              <div class="kpi-delta kpi-up">Industry avg 21%</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-gold">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Conversion Rate</div>
+              <div class="kpi-value" id="mkt-conversion">—</div>
+              <div class="kpi-delta kpi-up">Leads → Bids</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-large">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Lead Sources (YTD)</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-mkt-sources" aria-label="Lead sources chart" role="img"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Campaign ROI by Type</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-mkt-roi" aria-label="Campaign ROI chart" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-full">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Web Traffic — Monthly Visitors</h2>
+            </div>
+            <div class="chart-container chart-container-sm">
+              <canvas id="chart-mkt-traffic" aria-label="Monthly web traffic" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SHIPPING ===== -->
+      <section class="dashboard-section" id="section-shipping" aria-labelledby="shipping-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="shipping-heading" class="section-title">Shipping & Logistics</h1>
+
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-3">
+          <article class="kpi-card kpi-blue" id="kpi-open-orders" style="cursor: pointer;">
+            <div class="kpi-icon">📦</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Open Orders</div>
+              <div class="kpi-value" id="ship-orders">—</div>
+              <div class="kpi-delta">Active on schedule</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-teal">
+            <div class="kpi-icon">📋</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Total Orders (1 yr)</div>
+              <div class="kpi-value" id="ship-total">—</div>
+              <div class="kpi-delta">Open + Closed</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan" id="kpi-jobs-on-hold" style="cursor: pointer;">
+            <div class="kpi-icon">⏸️</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Jobs On Hold</div>
+              <div class="kpi-value" id="ship-hold">—</div>
+              <div class="kpi-delta kpi-up">Review needed</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-navy" id="kpi-with-jobs" style="cursor: pointer; grid-column: 1 / -1;">
+            <div class="kpi-icon">⚙️</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Orders with Job(s) Released to Shop</div>
+              <div class="kpi-value" id="ship-withjobs">—</div>
+              <div class="kpi-delta kpi-down">Has released jobs</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-large">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Shipments by Month (YTD)</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-ship-region" aria-label="Shipments by region" role="img"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Order Status</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-ship-methods" aria-label="Shipping methods distribution" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="data-table-card">
+          <div class="table-header">
+            <h2 class="chart-title">Shipping Orders <span id="ship-table-count" style="font-size:0.85rem;font-weight:400;color:var(--text-secondary);"></span></h2>
+            <div style="display:flex; gap: 15px; align-items:center;">
+              <input type="text" id="shipping-search" placeholder="Search orders..." style="padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary);" />
+              <div class="db-badge">
+                <span class="db-dot"></span>Epicor Live Feed
+              </div>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table" id="shipping-table">
+              <thead>
+                <tr>
+                  <th scope="col">STATUS</th>
+                  <th scope="col">OrderNum</th>
+                  <th scope="col">JOB</th>
+                  <th scope="col">ProjectID</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">ShipDate</th>
+                  <th scope="col">REQDATE</th>
+                </tr>
+              </thead>
+              <tbody id="shipping-tbody">
+                <tr>
+                  <td colspan="7" class="loading-row">Connecting to Neptune database…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== HR ===== -->
+      <section class="dashboard-section" id="section-hr" aria-labelledby="hr-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="hr-heading" class="section-title">Human Resources</h1>
+            <p class="section-subtitle">Headcount, recruiting, attendance, and workforce analytics · AquaEmployeeStatus
+              SSRS</p>
+          </div>
+          <div class="section-actions">
+            <a href="http://aquaerprep/Reports/report/ITReports/AquaEmployeeStatus" target="_blank" rel="noopener"
+              class="btn-secondary" id="employee-status-link">👤 Employee Status</a>
+            <a href="http://www.aqua-aerobic.net:3000/hrchat/" target="_blank" rel="noopener" class="btn-secondary"
+              id="ava-link">🤖 Open AVA</a>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-3">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-icon">👥</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Total Employees</div>
+              <div class="kpi-value" id="hr-total">—</div>
+              <div class="kpi-delta">Active headcount</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan">
+            <div class="kpi-icon">🆕</div>
+            <div class="kpi-body">
+              <div class="kpi-label">New Hires YTD</div>
+              <div class="kpi-value" id="hr-newhires">—</div>
+              <div class="kpi-delta kpi-up">This year</div>
+            </div>
+          </article>
+
+          <article class="kpi-card kpi-navy">
+            <div class="kpi-icon">📋</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Open Positions</div>
+              <div class="kpi-value" id="hr-openpos">—</div>
+              <div class="kpi-delta">Actively recruiting</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-sky">
+            <div class="kpi-icon">⏰</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Avg Tenure</div>
+              <div class="kpi-value" id="hr-tenure">—</div>
+              <div class="kpi-delta">Years per employee</div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-large">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Headcount by Department</h2>
+            </div>
+            <div class="chart-container" style="height: 520px; min-height: 520px;">
+              <canvas id="chart-hr-dept" aria-label="Headcount by department" role="img"></canvas>
+            </div>
+          </div>
+          <div class="chart-card chart-medium">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Employee Tenure Distribution</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-hr-tenure" aria-label="Employee tenure distribution" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-full">
+            <div class="chart-card-header">
+              <h2 class="chart-title">Monthly Hiring & Attrition</h2>
+            </div>
+            <div class="chart-container chart-container-sm">
+              <canvas id="chart-hr-trend" aria-label="Monthly hiring and attrition trends" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== COMPETITION ===== -->
+      <section class="dashboard-section" id="section-competition" aria-labelledby="competition-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="competition-heading" class="section-title">Competitive Intelligence</h1>
+            <p class="section-subtitle">Competitor tracking</p>
+          </div>
+        </div>
+
+
+
+
+        <!-- Industry News Strip (populated by JS from Google News RSS) -->
+        <div id="comp-news-strip" style="display:none;flex-direction:column;gap:8px;margin-bottom:20px;"></div>
+
+        <div class="competitor-cards-grid">
+          <!-- Populated by JS from Firebase competition_intel -->
+        </div>
+  </div>
+  </section>
+
+  </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js" type="module"></script>
+</body>
+
+</html>
