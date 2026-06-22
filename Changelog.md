@@ -8,6 +8,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) - versio
 ## [Unreleased]
 
 ### 2026-06-22 | Aqua-Aerobic IT
+**ui: Update AQUALocator description → "employee directory & location finder"**
+- Updated sidebar nav tooltip from "asset locator tool" to "Aqua employee directory & location finder"
+- Updated Overview Quick Launch tile tooltip to match
+- Updated tile description text from "Asset locator tool" to "Employee directory & location finder"
+
+### 2026-06-22 | Aqua-Aerobic IT
 **ui: Rename "Aqua Guide 1-Minute App" → "1-Minute App" with tooltip "reference guide for Aqua Reps!"**
 - Renamed sidebar nav label from "Aqua Guide 1-Minute App" to "1-Minute App"
 - Renamed Overview Quick Launch tile name from "Aqua Guide 1-Minute App" to "1-Minute App"
