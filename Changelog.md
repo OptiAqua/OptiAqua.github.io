@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) - versio
 
 ## [Unreleased]
 
+### 2026-06-22 | Aqua-Aerobic IT
+**feat: Add ACE – AI to Internal Tools**
+- Added ACE – AI (🧠) to sidebar nav and Overview Quick Launch grid
+- URL: `http://www.aqua-aerobic.net:3000/ace/`
 
 ### 2026-06-22 | Aqua-Aerobic IT
 **feat: Full sync from N:\Documentation\OptiAqua — restore all latest features**
