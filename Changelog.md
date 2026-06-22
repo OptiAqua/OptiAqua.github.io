@@ -8,6 +8,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) - versio
 ## [Unreleased]
 
 ### 2026-06-22 | Aqua-Aerobic IT
+**ui: Sidebar brand click → page refresh**
+- Added `onclick="location.reload()"` to `.sidebar-brand` div so clicking the OptiAqua logo refreshes the page
+- Added pointer cursor and "Refresh page" tooltip for visual affordance
+
+### 2026-06-22 | Aqua-Aerobic IT
 **ui: Update AQUALocator description → "employee directory & location finder"**
 - Updated sidebar nav tooltip from "asset locator tool" to "Aqua employee directory & location finder"
 - Updated Overview Quick Launch tile tooltip to match
