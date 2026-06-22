@@ -8,6 +8,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) - versio
 ## [Unreleased]
 
 ### 2026-06-22 | Aqua-Aerobic IT
+**ui: Add tooltips to all menu links and Quick Launch tiles**
+- Added `title` attributes with descriptions and URLs to all 8 Dashboard nav links
+- Added `title` attributes to all 11 Internal Tools sidebar links
+- Added `title` attributes to all 11 Overview Quick Launch app tiles
+
+### 2026-06-22 | Aqua-Aerobic IT
 **feat: Add ACE – AI to Internal Tools**
 - Added ACE – AI (🧠) to sidebar nav and Overview Quick Launch grid
 - URL: `http://www.aqua-aerobic.net:3000/ace/`
