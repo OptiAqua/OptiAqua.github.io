@@ -8,6 +8,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) - versio
 ## [Unreleased]
 
 ### 2026-06-22 | Aqua-Aerobic IT
+**ui: Rename "Aqua Guide 1-Minute App" → "1-Minute App" with tooltip "reference guide for Aqua Reps!"**
+- Renamed sidebar nav label from "Aqua Guide 1-Minute App" to "1-Minute App"
+- Renamed Overview Quick Launch tile name from "Aqua Guide 1-Minute App" to "1-Minute App"
+- Updated tile description to "reference guide for Aqua Reps!"
+- Updated `title` tooltip attributes on both elements to "1-Minute App — reference guide for Aqua Reps!"
+
+### 2026-06-22 | Aqua-Aerobic IT
 **ui: Add tooltips to all menu links and Quick Launch tiles**
 - Added `title` attributes with descriptions and URLs to all 8 Dashboard nav links
 - Added `title` attributes to all 11 Internal Tools sidebar links
