@@ -8,6 +8,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) - versio
 ## [Unreleased]
 
 ### 2026-06-22 | Aqua-Aerobic IT
+**chore: Remove obsolete commit helper scripts**
+- Deleted `CommitSteps` (replaced by `comitt.txt`)
+- Deleted `Update-Changelog.ps1` (changelog now maintained manually)
+- Deleted `push.ps1` (replaced by direct git commands)
+
+### 2026-06-22 | Aqua-Aerobic IT
 **ui: Sidebar brand click → page refresh**
 - Added `onclick="location.reload()"` to `.sidebar-brand` div so clicking the OptiAqua logo refreshes the page
 - Added pointer cursor and "Refresh page" tooltip for visual affordance
