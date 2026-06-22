@@ -1,22 +1,27 @@
-# Dependencies
+# ============================================================
+# OptiAqua Analytics — .gitignore
+# ============================================================
+
+# Node.js
 node_modules/
+npm-debug.log*
 
-# Firebase service account (NEVER commit this)
-sync/serviceaccount.json
-sync/optiaqua-*.json
-
-# Environment secrets
+# Environment / Secrets — NEVER commit these
+.env
+*.env
 sync/.env
-sync/keys.txt
+
+# Firebase Service Account Keys — NEVER commit these
+*.json
+!package.json
+!sync/package.json
 
 # OS files
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# IDE
-.vscode/
-.idea/
-
-# Temp
-temp_clone/
+# Editor
+.vscode/settings.json
+*.suo
+*.user

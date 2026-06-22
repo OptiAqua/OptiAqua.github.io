@@ -1,0 +1,263 @@
+create a new html/js/firebase app for our company focusing on analytics for sales, marketing, shipping, hr, it projects and competition. Our company name is Aqua-Aerobic Systems, Inc. I would like to create an analytics app using our main data points for sales, marketing, shipping, hr
+
+The github repo I want it hosted on is https://github.com/OptiAqua/OptiAqua.github.io.git
+
+Company Website is https://aqua-aerobic.com/
+
+Company Intranet is http://www.aqua-aerobic.net
+
+Data Points:
+
+File activity: Node.js app  http://www.aqua-aerobic.net:3000/
+
+1-Minute Reference Guide @ https://aquaguide.app/						
+Aqua IT HelpDesk @ http://www.aqua-aerobic.net:5555/						
+Aqua Job Pick Pack Print @ http://www.aqua-aerobic.net:5050/						
+Aqua Visitor Management System @ https://aquavisitorsystem.github.io/						
+Aqua-Aerobic Systems Company Search @ http://www.aqua-aerobic.net:3000/							
+AQUALocator @ https://aqualocator.github.io/						
+AVA | HR AI Assistant @ http://www.aqua-aerobic.net:3000/hrchat/										
+CSDashboard LIVE @ http://aqua88:5076/	5:00am						
+Field Service Schedule Dashboard @ http://www.aqua-aerobic.net:5000/						
+Master Packing List App Dashboard @ http://www.aqua-aerobic.net:4000/dashboard.html						
+Panel Progress Dashboard - ELENG Resource Group @ http://www.aqua-aerobic.net:5084/	
+
+SQL activity:
+
+Database for managing Sales/Bids/Shop
+server: aquaerpdb
+db: EpicorLive
+user: odbcuser
+pw: odbcuser
+
+server: aqua26
+db: Neptune
+user: odbcuser
+pw: odbcuser
+
+server: aqua26
+db: Neptune_Master
+user: odbcuser
+pw: odbcuser
+
+
+Database for Warranty & Service
+server: aqua18
+db: AquaAerobic
+user: odbcuser
+pw: odbcuser
+
+server: aqua18
+db: AquaReports
+user: odbcuser
+pw: odbcuser 
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAEaRXQ5i_riUbF9X38JGeSY7JnqNqqWNA",
+  authDomain: "optiaqua-1844b.firebaseapp.com",
+  projectId: "optiaqua-1844b",
+  storageBucket: "optiaqua-1844b.firebasestorage.app",
+  messagingSenderId: "366711378787",
+  appId: "1:366711378787:web:1c0181a2dc6345d0cd7956",
+  measurementId: "G-ZBTH0F423Z"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+Shipping Orders Datagrid
+SELECT distinct
+   MasterPackingSSRS.JobClosed As OrderStatus, 
+    MasterPackingSSRS.OrderNum, 
+	    MasterPackingSSRS.MtlJobNum AS JobNum, 
+    MasterPackingSSRS.ProjectID, 
+	    MasterPackingSSRS.ProjDesc As ProjName, 
+     MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN MasterPackingSSRS.JobClosed = 1 THEN ISNULL(ShipDate, MasterPackingSSRS.ClosedDate) 
+        WHEN MasterPackingSSRS.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].MasterPackingSSRS 
+LEFT OUTER JOIN JobHead 
+    ON MasterPackingSSRS.ProjectID = JobHead.ProjectID 
+    AND MasterPackingSSRS.JobNum = JobHead.JobNum
+WHERE ((MasterPackingSSRS.ShipAsm = 1 OR MasterPackingSSRS.ShipParts = 1))
+GROUP BY 
+    MasterPackingSSRS.OrderNum, 
+    MasterPackingSSRS.MtlJobNum, 
+    MasterPackingSSRS.ProjectID, 
+	MasterPackingSSRS.ProjDesc,
+    MasterPackingSSRS.JobClosed, 
+    MasterPackingSSRS.ClosedDate
+ORDER BY 
+    MasterPackingSSRS.JobClosed,ShipDate desc,ReqDueDate
+
+Open Order  (latest count: 407)
+SELECT distinct
+   MasterPackingSSRS.JobClosed As JobStatus, 
+    MasterPackingSSRS.OrderNum, 
+	    MasterPackingSSRS.MtlJobNum AS JobNum, 
+    MasterPackingSSRS.ProjectID, 
+	    MasterPackingSSRS.ProjDesc As ProjName, 
+     MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN MasterPackingSSRS.JobClosed = 1 THEN ISNULL(ShipDate, MasterPackingSSRS.ClosedDate) 
+        WHEN MasterPackingSSRS.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].MasterPackingSSRS 
+LEFT OUTER JOIN JobHead 
+    ON MasterPackingSSRS.ProjectID = JobHead.ProjectID 
+    AND MasterPackingSSRS.JobNum = JobHead.JobNum
+WHERE ((MasterPackingSSRS.ShipAsm = 1 OR MasterPackingSSRS.ShipParts = 1)     and MasterPackingSSRS.JobClosed = 0 )
+GROUP BY 
+    MasterPackingSSRS.OrderNum, 
+    MasterPackingSSRS.MtlJobNum, 
+    MasterPackingSSRS.ProjectID, 
+	MasterPackingSSRS.ProjDesc,
+    MasterPackingSSRS.JobClosed, 
+    MasterPackingSSRS.ClosedDate
+ORDER BY 
+    MasterPackingSSRS.JobClosed,ReqDueDate
+
+
+Jobs On Hold (latest count: 19)
+SELECT distinct
+   MasterPackingSSRS.JobClosed As JobStatus, 
+    MasterPackingSSRS.OrderNum, 
+	    MasterPackingSSRS.MtlJobNum AS JobNum, 
+    MasterPackingSSRS.ProjectID, 
+	    MasterPackingSSRS.ProjDesc As ProjName, 
+     MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN MasterPackingSSRS.JobClosed = 1 THEN ISNULL(ShipDate, MasterPackingSSRS.ClosedDate) 
+        WHEN MasterPackingSSRS.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].MasterPackingSSRS 
+LEFT OUTER JOIN JobHead 
+    ON MasterPackingSSRS.ProjectID = JobHead.ProjectID 
+    AND MasterPackingSSRS.JobNum = JobHead.JobNum
+WHERE (MasterPackingSSRS.ShipAsm = 1 OR MasterPackingSSRS.ShipParts = 1)  and (JobHead.JobReleased = 0 Or JobHead.JobHeld = 1 ) and   MasterPackingSSRS.JobClosed = 0
+GROUP BY 
+    MasterPackingSSRS.OrderNum, 
+    MasterPackingSSRS.MtlJobNum, 
+    MasterPackingSSRS.ProjectID, 
+	MasterPackingSSRS.ProjDesc,
+    MasterPackingSSRS.JobClosed, 
+    MasterPackingSSRS.ClosedDate
+ORDER BY 
+    MasterPackingSSRS.JobClosed,ReqDueDate
+
+Orders Direct Ship (latest count: 399)
+SELECT distinct
+   MasterPackingSSRS.JobClosed As JobStatus, 
+    MasterPackingSSRS.OrderNum, 
+	    MasterPackingSSRS.MtlJobNum AS JobNum, 
+    MasterPackingSSRS.ProjectID, 
+	    MasterPackingSSRS.ProjDesc As ProjName, 
+     MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN MasterPackingSSRS.JobClosed = 1 THEN ISNULL(ShipDate, MasterPackingSSRS.ClosedDate) 
+        WHEN MasterPackingSSRS.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].MasterPackingSSRS 
+LEFT OUTER JOIN JobHead 
+    ON MasterPackingSSRS.ProjectID = JobHead.ProjectID 
+    AND MasterPackingSSRS.JobNum = JobHead.JobNum
+WHERE (MasterPackingSSRS.ShipAsm = 1 OR MasterPackingSSRS.ShipParts = 1)   and MasterPackingSSRS.JobClosed = 0 And JobReleased Is NULL
+GROUP BY 
+    MasterPackingSSRS.OrderNum, 
+    MasterPackingSSRS.MtlJobNum, 
+    MasterPackingSSRS.ProjectID, 
+	MasterPackingSSRS.ProjDesc,
+    MasterPackingSSRS.JobClosed, 
+    MasterPackingSSRS.ClosedDate
+ORDER BY 
+    MasterPackingSSRS.JobClosed,ReqDueDate
+
+
+Orders with Job(s) Released to Shop (latest count: 48)
+SELECT distinct
+   MasterPackingSSRS.JobClosed As JobStatus, 
+    MasterPackingSSRS.OrderNum, 
+	    MasterPackingSSRS.MtlJobNum AS JobNum, 
+    MasterPackingSSRS.ProjectID, 
+	    MasterPackingSSRS.ProjDesc As ProjName, 
+     MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN MasterPackingSSRS.JobClosed = 1 THEN ISNULL(ShipDate, MasterPackingSSRS.ClosedDate) 
+        WHEN MasterPackingSSRS.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].MasterPackingSSRS 
+LEFT OUTER JOIN JobHead 
+    ON MasterPackingSSRS.ProjectID = JobHead.ProjectID 
+    AND MasterPackingSSRS.JobNum = JobHead.JobNum
+WHERE ((MasterPackingSSRS.ShipAsm = 1 OR MasterPackingSSRS.ShipParts = 1)     and MasterPackingSSRS.JobClosed = 0 And JobReleased Is Not NULL)
+GROUP BY 
+    MasterPackingSSRS.OrderNum, 
+    MasterPackingSSRS.MtlJobNum, 
+    MasterPackingSSRS.ProjectID, 
+	MasterPackingSSRS.ProjDesc,
+    MasterPackingSSRS.JobClosed, 
+    MasterPackingSSRS.ClosedDate
+ORDER BY 
+    MasterPackingSSRS.JobClosed,ReqDueDate
+
+    WITH CTE_Shipments AS (
+    -- Your base query logic
+    SELECT 
+        MasterPackingSSRS.JobClosed As JobStatus, 
+        MasterPackingSSRS.OrderNum, 
+        MasterPackingSSRS.MtlJobNum AS JobNum, 
+        MasterPackingSSRS.ProjectID, 
+        MasterPackingSSRS.ProjDesc As ProjName, 
+        MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+        MAX(CASE 
+            WHEN MasterPackingSSRS.JobClosed = 1 THEN ISNULL(MasterPackingSSRS.ShipDate, MasterPackingSSRS.ClosedDate) 
+            WHEN MasterPackingSSRS.JobClosed = 0 THEN MasterPackingSSRS.ShipDate 
+            ELSE NULL 
+        END) AS ShipDate
+    FROM Aquaerpdb.[Custom].[dbo].MasterPackingSSRS 
+    LEFT OUTER JOIN JobHead 
+        ON MasterPackingSSRS.ProjectID = JobHead.ProjectID 
+        AND MasterPackingSSRS.JobNum = JobHead.JobNum
+    WHERE ((MasterPackingSSRS.ShipAsm = 1 OR MasterPackingSSRS.ShipParts = 1) 
+           AND MasterPackingSSRS.JobClosed = 1 )
+    GROUP BY 
+        MasterPackingSSRS.OrderNum, 
+        MasterPackingSSRS.MtlJobNum, 
+        MasterPackingSSRS.ProjectID, 
+        MasterPackingSSRS.ProjDesc, 
+        MasterPackingSSRS.JobClosed, 
+        MasterPackingSSRS.ClosedDate
+)
+SELECT 
+    YEAR(ShipDate) AS ShipYear,
+    MONTH(ShipDate) AS ShipMonth,
+    DATENAME(month, ShipDate) AS MonthName,
+    COUNT(JobNum) AS TotalShipments
+FROM CTE_Shipments
+WHERE YEAR(ShipDate) = YEAR(GETDATE()) - 1
+GROUP BY 
+    YEAR(ShipDate), 
+    MONTH(ShipDate),
+    DATENAME(month, ShipDate)
+ORDER BY 
+    ShipYear, 
+    ShipMonth;
+

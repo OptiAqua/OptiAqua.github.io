@@ -1,0 +1,128 @@
+OptiAqua Analytics Platform -- Commit & Push Steps
+Aqua-Aerobic Systems, Inc.
+===========================================================
+
+cd C:\NodeJSApps\OptiAqua\sync && pm2 reload optiaqua-sync --update-env && pm2 save && pm2 ls
+Copy sync.js to Z:\OptiAqua\sync
+CD C:\NodeJSApps\OptiAqua\sync &&  node sync.js --once
+ .\push.ps1 "minor updates Read CHANGELOG.md"
+
+
+===========================================================
+ONE-LINE COMMAND (recommended)
+===========================================================
+
+    .\push.ps1 "minor updates Read CHANGELOG.md"
+
+  This single command will automatically:
+    [1] Update CHANGELOG.md
+    [2] Stage all changed files  (git add .)
+    [3] Commit with your message (git commit -m "...")
+    [4] Push to GitHub           (git push origin main)
+
+
+===========================================================
+RAW ONE-LINER (no changelog update)
+===========================================================
+
+  git add . ; git commit -m "your message" ; git push origin main
+
+
+===========================================================
+MANUAL STEP-BY-STEP (for selective staging)
+===========================================================
+
+  STEP 1 -- Check what has changed
+    git status
+    git diff
+
+  STEP 2 -- Update the Changelog
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Update-Changelog.ps1" -Mode append
+
+  STEP 3 -- Stage specific files
+    git add <filename>
+    git add index.html styles.css app.js CHANGELOG.md
+
+  STEP 4 -- Commit
+    git commit -m "type: short description"
+
+  STEP 5 -- Push
+    git push origin main
+
+  STEP 6 -- Verify live site (allow 1-2 min)
+    https://optiqua.github.io/OptiAqua.github.io/
+
+
+===========================================================
+COMMIT MESSAGE TYPES
+===========================================================
+
+  feat:   new feature or section
+  fix:    bug fix
+  chore:  maintenance, config, deps
+  docs:   documentation only
+  style:  CSS / formatting changes
+
+
+===========================================================
+RELEASE A VERSION (end of sprint / major update)
+===========================================================
+
+  powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Update-Changelog.ps1" -Mode release -Version 1.0.0
+  git push origin main --tags
+
+
+===========================================================
+USEFUL GIT COMMANDS
+===========================================================
+
+  git status              -- see what files have changed
+  git diff                -- see exact line-by-line changes
+  git log --oneline -10   -- last 10 commits
+  git diff --staged       -- review staged files before committing
+
+
+===========================================================
+FILES IN THIS PROJECT
+===========================================================
+
+  index.html              App shell (all 7 dashboard sections)
+  styles.css              Dark-mode design system
+  app.js                  Chart.js, navigation, demo data
+  firebase-init.js        Firebase config (live: optiaqua-1844b)
+  CHANGELOG.md            Project changelog
+  push.ps1                One-command commit & push script
+  Update-Changelog.ps1    Changelog helper (called by push.ps1)
+  README.md               Full project documentation
+  CommitSteps             This file
+
+
+===========================================================
+DATABASES (internal network only)
+===========================================================
+
+  aquaerpdb  / EpicorLive      Sales, Bids, Shop
+  aqua26     / Neptune         Shipping, Orders
+  aqua26     / Neptune_Master  Master data
+  aqua18     / AquaAerobic     Warranty & Service
+  aqua18     / AquaReports     Reports
+
+
+===========================================================
+INTERNAL TOOLS (linked in dashboard sidebar)
+===========================================================
+
+  Company Search    http://www.aqua-aerobic.net:3000/
+  IT HelpDesk       http://www.aqua-aerobic.net:5555/
+  Pick Pack Print   http://www.aqua-aerobic.net:5050/
+  CSD Live          http://aqua88:5076/
+  Field Service     http://www.aqua-aerobic.net:5000/
+  Packing List      http://www.aqua-aerobic.net:4000/dashboard.html
+  Panel Progress    http://www.aqua-aerobic.net:5084/
+  AVA HR AI         http://www.aqua-aerobic.net:3000/hrchat/
+  AQUALocator       https://aqualocator.github.io/
+  AquaGuide         https://aquaguide.app/
+  Visitor System    https://aquavisitorsystem.github.io/
+
+
+IT Dept: ITHelpDesk@aqua-aerobic.com

@@ -78,6 +78,7 @@
             <span class="nav-label">Shipping</span>
           </a>
         </li>
+
         <li>
           <a href="#" class="nav-link" id="nav-hr" data-section="hr">
             <span class="nav-icon">👥</span>
@@ -89,6 +90,18 @@
           <a href="#" class="nav-link" id="nav-competition" data-section="competition">
             <span class="nav-icon">🏆</span>
             <span class="nav-label">Competition</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-inventory" data-section="inventory">
+            <span class="nav-icon">📦</span>
+            <span class="nav-label">Inventory</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="nav-production" data-section="production">
+            <span class="nav-icon">🏭</span>
+            <span class="nav-label">Production</span>
           </a>
         </li>
       </ul>
@@ -146,13 +159,7 @@
             <span class="ext-badge">↗</span>
           </a>
         </li>
-        <li>
-          <a href="http://www.aqua-aerobic.net:5555/" target="_blank" rel="noopener" class="nav-link nav-link-external">
-            <span class="nav-icon">🎫</span>
-            <span class="nav-label">IT HelpDesk</span>
-            <span class="ext-badge">↗</span>
-          </a>
-        </li>
+
         <li>
           <a href="http://www.aqua-aerobic.net:4000/dashboard.html" target="_blank" rel="noopener"
             class="nav-link nav-link-external">
@@ -246,9 +253,9 @@
           <article class="kpi-card kpi-cyan" role="listitem">
             <div class="kpi-icon" aria-hidden="true">💰</div>
             <div class="kpi-body">
-              <div class="kpi-label">YTD Revenue</div>
+              <div class="kpi-label">Backlog Value</div>
               <div class="kpi-value" id="kpi-revenue">—</div>
-              <div class="kpi-delta kpi-up" id="kpi-revenue-delta">Loading…</div>
+              <div class="kpi-delta kpi-up" id="kpi-revenue-delta">YTD</div>
             </div>
           </article>
           <article class="kpi-card kpi-teal" role="listitem">
@@ -347,12 +354,7 @@
               <span class="app-tile-name">Field Service</span>
               <span class="app-tile-desc">Schedule dashboard</span>
             </a>
-            <a href="http://www.aqua-aerobic.net:5555/" target="_blank" rel="noopener" class="app-tile" role="listitem">
-              <div class="app-tile-icon" style="background:linear-gradient(135deg,#03045E,#0077B6)" aria-hidden="true">
-                🎫</div>
-              <span class="app-tile-name">IT HelpDesk</span>
-              <span class="app-tile-desc">Ticket management</span>
-            </a>
+
             <a href="http://www.aqua-aerobic.net:4000/dashboard.html" target="_blank" rel="noopener" class="app-tile"
               role="listitem">
               <div class="app-tile-icon" style="background:linear-gradient(135deg,#B5451B,#F4A261)" aria-hidden="true">
@@ -385,16 +387,17 @@
             <p class="section-subtitle">EpicorLive · Neptune · Sales pipeline and bid tracking</p>
           </div>
           <div class="section-actions">
-            <select class="select-filter" id="sales-period-filter" aria-label="Select time period">
-              <option value="mtd">Month to Date</option>
-              <option value="qtd">Quarter to Date</option>
-              <option value="ytd" selected>Year to Date</option>
+            <select class="select-filter" id="sales-year-filter" aria-label="Select Year">
+              <option value="2026" selected>2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
             </select>
           </div>
         </div>
 
-        <div class="kpi-grid kpi-grid-4">
-          <article class="kpi-card kpi-blue">
+        <div class="kpi-grid kpi-grid-5">
+          <article class="kpi-card kpi-blue" id="kpi-card-sales-total" style="cursor:pointer;">
             <div class="kpi-icon">💼</div>
             <div class="kpi-body">
               <div class="kpi-label">Total Bids</div>
@@ -402,15 +405,23 @@
               <div class="kpi-delta kpi-up" id="sales-bids-delta">Loading…</div>
             </div>
           </article>
-          <article class="kpi-card kpi-cyan">
+          <article class="kpi-card kpi-cyan" id="kpi-card-sales-won" style="cursor:pointer;">
             <div class="kpi-icon">✅</div>
             <div class="kpi-body">
               <div class="kpi-label">Won</div>
               <div class="kpi-value" id="sales-won">—</div>
-              <div class="kpi-delta kpi-up">vs last period</div>
+              <div class="kpi-delta kpi-up">bids secured</div>
             </div>
           </article>
-          <article class="kpi-card kpi-teal">
+          <article class="kpi-card kpi-green" id="kpi-card-sales-won-value" style="cursor:pointer;">
+            <div class="kpi-icon">💵</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Won Sales Value</div>
+              <div class="kpi-value" id="sales-won-value">—</div>
+              <div class="kpi-delta kpi-up" id="sales-won-value-delta">YTD</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-teal" id="kpi-card-sales-pending" style="cursor:pointer;">
             <div class="kpi-icon">⏳</div>
             <div class="kpi-body">
               <div class="kpi-label">Pending</div>
@@ -418,7 +429,7 @@
               <div class="kpi-delta">In pipeline</div>
             </div>
           </article>
-          <article class="kpi-card kpi-gold">
+          <article class="kpi-card kpi-gold" id="kpi-card-sales-backlog" style="cursor:pointer;">
             <div class="kpi-icon">💰</div>
             <div class="kpi-body">
               <div class="kpi-label">Backlog Value</div>
@@ -450,6 +461,18 @@
         <div class="charts-row">
           <div class="chart-card chart-full">
             <div class="chart-card-header">
+              <h2 class="chart-title">Pending Pipeline by Target Category</h2>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">100%, Reserve, Watch List, Target</p>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-sales-categories" aria-label="Pipeline by category" role="img"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card chart-full">
+            <div class="chart-card-header">
               <h2 class="chart-title">Monthly Sales vs Target</h2>
             </div>
             <div class="chart-container chart-container-sm">
@@ -460,9 +483,12 @@
 
         <div class="data-table-card">
           <div class="table-header">
-            <h2 class="chart-title">Recent Bids — EpicorLive / Neptune</h2>
-            <div class="db-badge">
-              <span class="db-dot"></span>aquaerpdb · EpicorLive
+            <h2 class="chart-title">Sales Bids <span id="sales-table-count" style="font-size:0.85rem;font-weight:400;color:var(--text-secondary);"></span></h2>
+            <div style="display:flex; gap: 15px; align-items:center;">
+              <input type="text" id="sales-search" placeholder="Search bids..." style="padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary);" />
+              <div class="db-badge">
+                <span class="db-dot"></span>aquaerpdb · EpicorLive
+              </div>
             </div>
           </div>
           <div class="table-scroll">
@@ -485,6 +511,7 @@
               </tbody>
             </table>
           </div>
+          <div id="sales-pagination" style="display:none; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:10px 4px 2px;"></div>
         </div>
       </section>
 
@@ -501,15 +528,15 @@
           <article class="kpi-card kpi-blue">
             <div class="kpi-icon">🌐</div>
             <div class="kpi-body">
-              <div class="kpi-label">Web Sessions</div>
+              <div class="kpi-label">Total SEO Reach</div>
               <div class="kpi-value" id="mkt-sessions">—</div>
-              <div class="kpi-delta kpi-up">This month</div>
+              <div class="kpi-delta kpi-up">Calculated via API</div>
             </div>
           </article>
           <article class="kpi-card kpi-cyan">
             <div class="kpi-icon">📥</div>
             <div class="kpi-body">
-              <div class="kpi-label">Inbound Leads</div>
+              <div class="kpi-label">Performance Metric</div>
               <div class="kpi-value" id="mkt-leads">—</div>
               <div class="kpi-delta kpi-up">This month</div>
             </div>
@@ -517,17 +544,17 @@
           <article class="kpi-card kpi-teal">
             <div class="kpi-icon">📧</div>
             <div class="kpi-body">
-              <div class="kpi-label">Email Open Rate</div>
+              <div class="kpi-label">Avg SEO Score</div>
               <div class="kpi-value" id="mkt-email-rate">—</div>
-              <div class="kpi-delta kpi-up">Industry avg 21%</div>
+              <div class="kpi-delta kpi-up">Google Lighthouse</div>
             </div>
           </article>
           <article class="kpi-card kpi-gold">
             <div class="kpi-icon">🎯</div>
             <div class="kpi-body">
-              <div class="kpi-label">Conversion Rate</div>
+              <div class="kpi-label">Avg Perf Score</div>
               <div class="kpi-value" id="mkt-conversion">—</div>
-              <div class="kpi-delta kpi-up">Leads → Bids</div>
+              <div class="kpi-delta kpi-up">Google Lighthouse</div>
             </div>
           </article>
         </div>
@@ -581,12 +608,20 @@
               <div class="kpi-delta">Active on schedule</div>
             </div>
           </article>
-          <article class="kpi-card kpi-teal">
-            <div class="kpi-icon">📋</div>
+          <article class="kpi-card kpi-teal" id="kpi-overdue-orders" style="cursor: pointer;">
+            <div class="kpi-icon">⚠️</div>
             <div class="kpi-body">
-              <div class="kpi-label">Total Orders (1 yr)</div>
-              <div class="kpi-value" id="ship-total">—</div>
-              <div class="kpi-delta">Open + Closed</div>
+              <div class="kpi-label">Jobs Overdue</div>
+              <div class="kpi-value" id="ship-overdue">—</div>
+              <div class="kpi-delta kpi-down">Missed Req Due Date</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-green" id="kpi-ontime-orders" style="cursor: pointer;">
+            <div class="kpi-icon">⏱️</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Shipped On-Time</div>
+              <div class="kpi-value" id="ship-ontime">—</div>
+              <div class="kpi-delta kpi-up">YTD Average</div>
             </div>
           </article>
           <article class="kpi-card kpi-cyan" id="kpi-jobs-on-hold" style="cursor: pointer;">
@@ -597,7 +632,7 @@
               <div class="kpi-delta kpi-up">Review needed</div>
             </div>
           </article>
-          <article class="kpi-card kpi-navy" id="kpi-with-jobs" style="cursor: pointer; grid-column: 1 / -1;">
+          <article class="kpi-card kpi-navy" id="kpi-with-jobs" style="cursor: pointer; grid-column: span 2;">
             <div class="kpi-icon">⚙️</div>
             <div class="kpi-body">
               <div class="kpi-label">Orders with Job(s) Released to Shop</div>
@@ -656,6 +691,88 @@
               </tbody>
             </table>
           </div>
+          <div id="ship-pagination" style="display:none; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:10px 4px 2px;"></div>
+        </div>
+      </section>
+
+      <!-- ===== FIELD SERVICE ===== -->
+      <section class="dashboard-section" id="section-fieldservice" aria-labelledby="fs-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="fs-heading" class="section-title">Field Service Schedule</h1>
+          </div>
+        </div>
+
+        <div class="kpi-grid kpi-grid-3">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-icon">🛠️</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Active / Upcoming Trips</div>
+              <div class="kpi-value" id="fs-total-trips">—</div>
+              <div class="kpi-delta kpi-up">Next 2 weeks</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="table-card">
+          <div class="table-header" style="flex-direction: column; align-items: stretch; gap: 10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <h2>Current & Upcoming Schedule</h2>
+            </div>
+            
+            <div class="table-actions" style="gap:10px; flex-wrap: wrap; background:var(--bg-hover); padding:10px; border-radius:8px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <label for="fs-start-date" style="font-size:0.8rem; color:var(--text-secondary)">>= WeekOf:</label>
+                <input type="date" id="fs-start-date" class="search-box" style="padding: 4px; width: 130px;">
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <label for="fs-end-date" style="font-size:0.8rem; color:var(--text-secondary)"><= WeekOf:</label>
+                <input type="date" id="fs-end-date" class="search-box" style="padding: 4px; width: 130px;">
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <label for="fs-tech" style="font-size:0.8rem; color:var(--text-secondary)">Tech:</label>
+                <select id="fs-tech" class="search-box" style="padding: 4px; width: 120px;"><option value="">ALL</option></select>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <label for="fs-equip" style="font-size:0.8rem; color:var(--text-secondary)">Equip:</label>
+                <select id="fs-equip" class="search-box" style="padding: 4px; width: 120px;"><option value="">ALL</option></select>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <label for="fs-state" style="font-size:0.8rem; color:var(--text-secondary)">State:</label>
+                <select id="fs-state" class="search-box" style="padding: 4px; width: 80px;"><option value="">ALL</option></select>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <label for="fs-triptype" style="font-size:0.8rem; color:var(--text-secondary)">Trip Type:</label>
+                <select id="fs-triptype" class="search-box" style="padding: 4px; width: 100px;"><option value="">ALL</option></select>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px; flex-grow: 1;">
+                <input type="text" id="fs-search" placeholder="Search ProjID, ProjName, etc..." aria-label="Search field service" class="search-box" style="width:100%;">
+              </div>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table" id="fs-table">
+              <thead>
+                <tr>
+                  <th>Tech Name</th>
+                  <th>Week Of</th>
+                  <th>S</th>
+                  <th>M</th>
+                  <th>T</th>
+                  <th>W</th>
+                  <th>Th</th>
+                  <th>F</th>
+                  <th>Sa</th>
+                  <th>Type</th>
+                  <th>Project / Purpose</th>
+                </tr>
+              </thead>
+              <tbody id="fs-tbody">
+                <tr><td colspan="11" class="loading-row">Loading schedule...</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="fs-pagination" style="display:none; justify-content:space-between; align-items:center; padding: 12px 20px; border-top: 1px solid var(--border); background: var(--bg-card); border-radius: 0 0 12px 12px;"></div>
         </div>
       </section>
 
@@ -762,8 +879,71 @@
         <div class="competitor-cards-grid">
           <!-- Populated by JS from Firebase competition_intel -->
         </div>
-  </div>
-  </section>
+      </section>
+
+      <!-- ===== INVENTORY ===== -->
+      <section class="dashboard-section" id="section-inventory" aria-labelledby="inventory-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="inventory-heading" class="section-title">Inventory Health & Accuracy</h1>
+            <p class="section-subtitle">Stock limits, cycle count accuracy, and negative time phases</p>
+          </div>
+        </div>
+        <div class="kpi-grid kpi-grid-3">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-icon">📉</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Below Min Inventory</div>
+              <div class="kpi-value" id="inv-min-breaches">—</div>
+              <div class="kpi-delta kpi-down">Needs review</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Cycle Count Accuracy</div>
+              <div class="kpi-value" id="inv-accuracy">—</div>
+              <div class="kpi-delta kpi-up">Target: 98%</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-red">
+            <div class="kpi-icon">⚠️</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Material Shortages</div>
+              <div class="kpi-value" id="inv-shortages">—</div>
+              <div class="kpi-delta kpi-down">Negative Time Phase</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== PRODUCTION ===== -->
+      <section class="dashboard-section" id="section-production" aria-labelledby="production-heading">
+        <div class="section-header">
+          <div>
+            <h1 id="production-heading" class="section-title">Manufacturing & Production</h1>
+            <p class="section-subtitle">Shop floor efficiency and open jobs</p>
+          </div>
+        </div>
+        <div class="kpi-grid kpi-grid-2">
+          <article class="kpi-card kpi-blue">
+            <div class="kpi-icon">🔧</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Open Jobs Past Due</div>
+              <div class="kpi-value" id="prod-past-due">—</div>
+              <div class="kpi-delta kpi-down">From OpenJobsByDueDate</div>
+            </div>
+          </article>
+          <article class="kpi-card kpi-cyan">
+            <div class="kpi-icon">🏭</div>
+            <div class="kpi-body">
+              <div class="kpi-label">Industrial Activity</div>
+              <div class="kpi-value" id="prod-activity">—</div>
+              <div class="kpi-delta kpi-up">DashboardIndustrialActivity</div>
+            </div>
+          </article>
+        </div>
+      </section>
 
   </main>
   </div>

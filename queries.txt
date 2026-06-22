@@ -1,0 +1,216 @@
+Shipping Orders {Datagrid Query and Sort. Latest Count 1713}
+SELECT distinct
+    OptiAqua.JobClosed As OrderStatus, 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum AS JobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc As ProjName, 
+    MAX(CASE 
+        WHEN OptiAqua.JobClosed = 1 THEN ISNULL(ShipDate, OptiAqua.ClosedDate) 
+        WHEN OptiAqua.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate,
+    MAX(JobHead.ReqDueDate) AS ReqDueDate 
+FROM Aquaerpdb.[Custom].[dbo].OptiAqua 
+LEFT OUTER JOIN JobHead 
+    ON OptiAqua.ProjectID = JobHead.ProjectID 
+    AND OptiAqua.JobNum = JobHead.JobNum
+WHERE ((OptiAqua.ShipAsm = 1 OR OptiAqua.ShipParts = 1))
+    AND OptiAqua.OrderDate >= DATEADD(year, -1, GETDATE())
+GROUP BY 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc,
+    OptiAqua.JobClosed, 
+    OptiAqua.ClosedDate,
+    OptiAqua.OrderDate
+ORDER BY 
+    OptiAqua.JobClosed, ShipDate desc, ReqDueDate
+
+
+Shipments by Month
+WITH CTE_Shipments AS (
+    -- Your base query logic
+    SELECT 
+        OptiAqua.JobClosed As JobStatus, 
+        OptiAqua.OrderNum, 
+        OptiAqua.MtlJobNum AS JobNum, 
+        OptiAqua.ProjectID, 
+        OptiAqua.ProjDesc As ProjName, 
+        MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+        MAX(CASE 
+            WHEN OptiAqua.JobClosed = 1 THEN ISNULL(OptiAqua.ShipDate, OptiAqua.ClosedDate) 
+            WHEN OptiAqua.JobClosed = 0 THEN OptiAqua.ShipDate 
+            ELSE NULL 
+        END) AS ShipDate
+    FROM Aquaerpdb.[Custom].[dbo].OptiAqua 
+    LEFT OUTER JOIN JobHead 
+        ON OptiAqua.ProjectID = JobHead.ProjectID 
+        AND OptiAqua.JobNum = JobHead.JobNum
+    WHERE ((OptiAqua.ShipAsm = 1 OR OptiAqua.ShipParts = 1) 
+           AND OptiAqua.JobClosed = 1 )
+    GROUP BY 
+        OptiAqua.OrderNum, 
+        OptiAqua.MtlJobNum, 
+        OptiAqua.ProjectID, 
+        OptiAqua.ProjDesc, 
+        OptiAqua.JobClosed, 
+        OptiAqua.ClosedDate
+)
+SELECT 
+    YEAR(ShipDate) AS ShipYear,
+    MONTH(ShipDate) AS ShipMonth,
+    DATENAME(month, ShipDate) AS MonthName,
+    COUNT(JobNum) AS TotalShipments
+FROM CTE_Shipments
+WHERE YEAR(ShipDate) = YEAR(GETDATE()) - 1
+GROUP BY 
+    YEAR(ShipDate), 
+    MONTH(ShipDate),
+    DATENAME(month, ShipDate)
+ORDER BY 
+    ShipYear, 
+    ShipMonth;
+
+Open Order  (latest count: 408)
+SELECT distinct
+    OptiAqua.JobClosed As JobStatus, 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum AS JobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc As ProjName, 
+    MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN OptiAqua.JobClosed = 1 THEN ISNULL(ShipDate, OptiAqua.ClosedDate) 
+        WHEN OptiAqua.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].OptiAqua 
+LEFT OUTER JOIN JobHead 
+    ON OptiAqua.ProjectID = JobHead.ProjectID 
+    AND OptiAqua.JobNum = JobHead.JobNum
+WHERE ((OptiAqua.ShipAsm = 1 OR OptiAqua.ShipParts = 1)      and OptiAqua.JobClosed = 0 )
+GROUP BY 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc,
+    OptiAqua.JobClosed, 
+    OptiAqua.ClosedDate
+ORDER BY 
+    OptiAqua.JobClosed,ReqDueDate;
+
+
+Jobs On Hold (latest count: 19)
+SELECT distinct
+    OptiAqua.JobClosed As JobStatus, 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum AS JobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc As ProjName, 
+    MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN OptiAqua.JobClosed = 1 THEN ISNULL(ShipDate, OptiAqua.ClosedDate) 
+        WHEN OptiAqua.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].OptiAqua 
+LEFT OUTER JOIN JobHead 
+    ON OptiAqua.ProjectID = JobHead.ProjectID 
+    AND OptiAqua.JobNum = JobHead.JobNum
+WHERE (OptiAqua.ShipAsm = 1 OR OptiAqua.ShipParts = 1)  and (JobHead.JobReleased = 0 Or JobHead.JobHeld = 1 ) and   OptiAqua.JobClosed = 0
+GROUP BY 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc,
+    OptiAqua.JobClosed, 
+    OptiAqua.ClosedDate
+ORDER BY 
+    OptiAqua.JobClosed,ReqDueDate;
+
+Orders Direct Ship (latest count: 400)
+SELECT distinct
+    OptiAqua.JobClosed As JobStatus, 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum AS JobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc As ProjName, 
+    MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN OptiAqua.JobClosed = 1 THEN ISNULL(ShipDate, OptiAqua.ClosedDate) 
+        WHEN OptiAqua.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].OptiAqua 
+LEFT OUTER JOIN JobHead 
+    ON OptiAqua.ProjectID = JobHead.ProjectID 
+    AND OptiAqua.JobNum = JobHead.JobNum
+WHERE (OptiAqua.ShipAsm = 1 OR OptiAqua.ShipParts = 1)   and OptiAqua.JobClosed = 0 And JobReleased Is NULL
+GROUP BY 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc,
+    OptiAqua.JobClosed, 
+    OptiAqua.ClosedDate
+ORDER BY 
+    OptiAqua.JobClosed,ReqDueDate;
+
+
+Orders with Job(s) Released to Shop (latest count: 48)
+SELECT distinct
+    OptiAqua.JobClosed As JobStatus, 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum AS JobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc As ProjName, 
+    MAX(JobHead.ReqDueDate) AS ReqDueDate, 
+    MAX(CASE 
+        WHEN OptiAqua.JobClosed = 1 THEN ISNULL(ShipDate, OptiAqua.ClosedDate) 
+        WHEN OptiAqua.JobClosed = 0 THEN ShipDate 
+        ELSE NULL 
+    END) AS ShipDate
+FROM Aquaerpdb.[Custom].[dbo].OptiAqua 
+LEFT OUTER JOIN JobHead 
+    ON OptiAqua.ProjectID = JobHead.ProjectID 
+    AND OptiAqua.JobNum = JobHead.JobNum
+WHERE ((OptiAqua.ShipAsm = 1 OR OptiAqua.ShipParts = 1)      and OptiAqua.JobClosed = 0 And JobReleased Is Not NULL)
+GROUP BY 
+    OptiAqua.OrderNum, 
+    OptiAqua.MtlJobNum, 
+    OptiAqua.ProjectID, 
+    OptiAqua.ProjDesc,
+    OptiAqua.JobClosed, 
+    OptiAqua.ClosedDate
+ORDER BY 
+    OptiAqua.JobClosed,ReqDueDate;
+
+
+Inventory On Hand (Min Inventory breaches)
+SELECT
+    Part.PartNum,
+    Part.ClassID,
+    PartPlant.MinimumQty,
+    SUM(PartBin.OnhandQty) AS TotalOnHand
+FROM Erp.Part 
+INNER JOIN Erp.PartPlant ON Part.Company = PartPlant.Company AND Part.PartNum = PartPlant.PartNum
+LEFT JOIN Erp.PartBin ON Part.Company = PartBin.Company AND Part.PartNum = PartBin.PartNum
+WHERE Part.InActive = 0
+GROUP BY Part.PartNum, Part.ClassID, PartPlant.MinimumQty
+HAVING SUM(PartBin.OnhandQty) < PartPlant.MinimumQty;
+
+
+Production Open Jobs Past Due
+SELECT 
+    JobHead.JobNum, 
+    JobHead.PartNum, 
+    JobHead.ReqDueDate,
+    JobHead.ProdQty,
+    JobHead.JobReleased,
+    JobHead.JobEngineered
+FROM Erp.JobHead 
+WHERE JobHead.JobClosed = 0 
+AND JobHead.JobComplete = 0
+AND JobHead.ReqDueDate < GETDATE();
